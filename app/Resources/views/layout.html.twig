@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>{% block title %} Sport blog by Zoe Dujeux {% endblock %} </title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
+		
+               {# 
+                {% javascripts 
+                    'bundles/zdblog/js/*' 
+                %}
+                    <script type="text/javascript" src="{{ asset_url }}"></script>
+                
+                {% endjavascripts %}
+                
+
+
+                {% stylesheets filter='cssrewrite'
+                    'bundles/zdblog/css/*'
+                %}
+                    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+                {% endstylesheets %}
+                    #}
+               
+               <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="{{asset('bundles/zdblog/js/skel.min.js')}}"></script>
+		<script src="{{asset('bundles/zdblog/js/skel-panels.min.js')}}"></script>
+		<script src="{{asset('bundles/zdblog/js/init.js')}}"></script>
+		<noscript>
+			
+		</noscript>
+                <link rel="stylesheet" href="{{asset('bundles/zdblog/css/skel-noscript.css')}}" />
+                <link rel="stylesheet" href="{{asset('bundles/zdblog/css/style.css')}}" />
+                <link rel="stylesheet" href="{{asset('bundles/zdblog/css/style-desktop.css')}}" />
+	</head>
+	<body class="{%block bodyClass %}{%endblock%}">
+            
+
+                
+                <div id="header">
+                    
+                    
+			<div id="nav-wrapper"> 
+                            
+				<!-- Nav -->
+				<nav id="nav">
+                                    
+
+					<ul>
+						<li class="active"><a href="index.html">Homepage</a></li>
+						<li><a href="semaine1.html">Semaines</a>
+                                                    <ul>
+                                                        <li><a href="semaine1.html">semaine 1</a></li>
+                                                        <li><a href="semaine2.html">semaine 2</a></li>
+                                                        <li><a href="semaine3.html">semaine 3</a></li>
+                                                        <li><a href="semaine4.html">semaine 4</a></li>
+                                                        <li><a href="semaine5.html">semaine 5</a></li>
+                                                        <li><a href="semaine6.html">semaine 6 </a></li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+						
+					</ul>
+                                    
+                                    
+				
+                                
+                                <div id="connect">
+                                   
+                                    <ul>
+                                 
+                                        <li> <a href='inscription.html' class="text-connexion">S'inscrire</a></li>
+                                        <li> <a href='connexion.html' class="text-connexion">Se connecter</a></li>
+                                        <li>{% image '@ZDBlogBundle/Resources/public/images/connect.png' %}
+                                        <a href="persoPage.html"><img class="button-connexion" src="{{asset_url}}" alt="imgConnect" /></a>
+                                        {% endimage %}
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+
+                        </nav>
+                                
+
+			</div>
+                        
+                        
+			<div class="container"> 
+                            
+               
+				
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="#">{% block h1 %}{% endblock %}</a></h1>
+					<span class="tag">{% block tag %}{% endblock %}</span>
+				</div>
+                                
+
+			</div>
+                        
+
+		</div>
+
+        {% block contentPage %}
+        {% endblock %}
+        
+        
+	<!-- Tweet -->
+		<div id="tweet">
+    
+			<div class="container">
+				<section>
+					<blockquote>&ldquo;Quand tu es sur le point de laisser tomber, repense à ce qui t'a poussé à commencer.&rdquo;</blockquote>
+				</section>
+			</div>
+
+		</div>
+<!-- Footer -->
+		<div id="footer">
+
+			<div class="container">
+				<section>
+					<header>
+						<h2>Get in touch</h2>
+						<span class="byline">Blablbal</span>
+					</header>
+				
+				</section>
+			</div>
+
+		</div>
+
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+                            Design: <a href="http://templated.co">TEMPLATED</a> <p> © Copyright Zoé Dujeux - Tous Droits Réservés</p>
+			</div>
+		</div>
+
+        <script>
+            {% block script %}
+            {% endblock %}
+        
+        </script>
+                
+
+            
+        </body> 
+</html>

@@ -1,0 +1,25 @@
+zd_blog_home:
+    path: /{page}
+    defaults:  { _controller: ZDBlogBundle:Article:index }
+    
+zd_blog_view:
+    path: /article/{id}
+    defaults:  { _controller: ZDBlogBundle:Article:view, page: 1 }
+    
+zd_blog_add:
+    path: /add
+    defaults:  { _controller: ZDBlogBundle:Article:add }
+    
+zd_blog_edit:
+    path: /edit/{id}
+    defaults: {_controller: ZDBlogBundle:Article:edit}
+    requirements:
+        id: \d*
+    
+zd_blog_delete:
+    path: /delete/{id}
+    defaults: {_controller: ZDBlogBundle:Article:delete}
+    requirements:
+        id: \d*
+    
+    
