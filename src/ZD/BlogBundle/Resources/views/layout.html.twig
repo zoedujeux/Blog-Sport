@@ -31,20 +31,22 @@
     
     
     <!-- Main no sidbar-->
-		<div id="main">
-			<div id="content" class="container">
-				<section>
-					<header>
-						<h2>Jour 6 et 7 </h2>
-					</header>
-                                    
-                                    <h3>Repooooooos</h3>
-                                    <p> Vous l'avez bien mérité !  </p>							
-
-				</section>
-			</div>
-                    
-                    <a href="semaine1.html"><img id="haut" src="images/ancre.png" alt="ancre" /></a>
-		</div>
+		 {{ include("ZDBlogBundle:Article:block.html.twig") }}
 	<!-- /Main -->
+{% endblock %}
+
+
+{% block script %}
+     
+        $(document).scroll(function(){
+            if ($('#nav-wrapper').offset().top > $('#main').offset().top - $('#nav-wrapper').height())
+            {
+                $('#nav-wrapper').addClass('grey')
+            }
+            else
+            {
+                $('#nav-wrapper').removeClass('grey')
+            }
+            
+        });
 {% endblock %}
