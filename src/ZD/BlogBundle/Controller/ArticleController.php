@@ -19,8 +19,17 @@ class ArticleController extends Controller
     
     public function viewAction($id, Request $request)
     {
-         return $this->render('ZDBlogBundle:Article:view.html.twig', array(
-            'id' => $id
+         $article = array (
+             'title' => "Titre de l'article",
+             'image' => "Image",
+             'content'=> "texte général",
+         );
+                 
+            return $this->render('ZDBlogBundle:Article:view.html.twig', array(
+            'id' => $id,
+            'article' => $article
           ));
     }
+    
+    
 }
