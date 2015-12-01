@@ -1,1 +1,63 @@
 {% extends "ZDBlogBundle::layoutIndex.html.twig" %}
+
+
+{% block h1 %}{{ index.titleH1 }}{% endblock %}
+{% block tag %}Zoé Dujeux{% endblock %}
+
+
+{% block contentPage %}
+   
+    <div id="featured">
+			<div class="container">
+				<header>
+					<h2>{{ index.titleH2 }} </h2>
+				</header>
+				<p>{{ index.content }}</p>
+				<hr />
+				<div class="row">
+					<section class="4u">
+						<span class="pennant"><span class="fa fa-briefcase"></span></span>
+						<h3>Semaine 1</h3>
+						<p>Jour 1 --> 7. Nous allons voir les exercices basics comme la plache, les squats, les pompes etc</p>
+						<a href="semaine1.html" class="button button-style1">Read More</a>
+					</section>
+					<section class="4u">
+						<span class="pennant"><span class="fa fa-lock"></span></span>
+						<h3>Semaine 2</h3>
+						<p>Jour 8 --> 14. Nous partirons des exercices basics pour les transformerons en exercices un peu plus compliqués. </p>
+						<a href="semaine2.html" class="button button-style1">Read More</a>
+					</section>
+					<section class="4u">
+						<span class="pennant"><span class="fa fa-globe"></span></span>
+						<h3>Semaine 3</h3>
+						<p>Jour 15 --> 21.Durant cette 3ème semaine nous commençerons à utiliser les altères. Ne raté pas ça ! </p>
+						<a href="semaine3.html" class="button button-style1">Read More</a>
+					</section>
+                                    
+                                        <section class="4u">
+						<span class="pennant"><span class="fa fa-globe"></span></span>
+						<h3>Semaine 4</h3>
+						<p>Jour 22 --> 28. Blablablab</p>
+						<a href="semaine4.html" class="button button-style1">Read More</a>
+					</section>
+                                    
+                                        <section class="4u">
+						<span class="pennant"><span class="fa fa-globe"></span></span>
+						<h3>Semaine 5</h3>
+						<p>Jour 29 --> 35.</p>
+						<a href="semaine5.html" class="button button-style1">Read More</a>
+					</section>
+                                    
+                                        <section class="4u">
+						<span class="pennant"><span class="fa fa-globe"></span></span>
+						<h3>Semaine 6</h3>
+						<p>Jour 36 --> 42.</p>
+						<a href="semaine6.html" class="button button-style1">Read More</a>
+					</section>
+
+				</div>
+			</div>
+        </div>
+    
+{% endblock %}
+ 

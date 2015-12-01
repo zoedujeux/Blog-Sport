@@ -13,20 +13,26 @@ class ArticleController extends Controller
 //          $content = $this->get('templating')->render('ZDBlogBundle:Article:index.html.twig');
 //            
 //          return new Response($content);
-         
-          return $this->render('ZDBlogBundle:Article:index.html.twig');
+         $index = array (
+             'titleH1' => "Blog Sportif",
+             'titleH2' => "Salut les filles !",
+             'content' => "Blabla pour le moment"
+         );
+          return $this->render('ZDBlogBundle:Article:index.html.twig', array(
+            'index' => $index
+            ));
     }
     
     public function viewAction($id, Request $request)
     {
          $article = array (
-             'title' => "Titre de l'article",
+             'titleH2' => "Titre de l'article",
+             'titleH3' => "Sous-titre de l'article",
              'image' => "Image",
              'content'=> "texte général",
          );
                  
             return $this->render('ZDBlogBundle:Article:view.html.twig', array(
-            'id' => $id,
             'article' => $article
           ));
     }

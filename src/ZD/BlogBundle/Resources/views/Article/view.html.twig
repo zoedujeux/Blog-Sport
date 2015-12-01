@@ -1,1 +1,31 @@
-{# empty Twig template #}
+{% block contentPage %}
+    <!-- Main left-->
+		 {{ include("ZDBlogBundle:Article:leftBlock.html.twig") }}
+    <!-- /Main -->
+        
+
+        
+        <!-- Main right-->
+		{{ include("ZDBlogBundle:Article:rightBlock.html.twig") }}
+	<!-- /Main -->
+        
+        
+        <!-- Main left-->
+                {{ include("ZDBlogBundle:Article:leftBlock.html.twig") }}
+         <!-- /Main -->
+    
+    
+        <!-- Main right-->
+		{{ include("ZDBlogBundle:Article:rightBlock.html.twig") }}
+	<!-- /Main -->
+        
+        
+                    <!-- Main left-->
+                {{ include("ZDBlogBundle:Article:leftBlock.html.twig") }}
+    <!-- /Main -->
+    
+    
+    <!-- Main no sidbar-->
+		 {{ include("ZDBlogBundle:Article:block.html.twig") }}
+	<!-- /Main -->
+{% endblock %}
