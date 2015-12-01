@@ -881,4 +881,578 @@
 			margin: 0;
 			font-weight: 300;
 			color: rgba(255,255,255,.6);
-		}	
+		}
+ 
+/*********************************************************************************/
+/* Media Queries Mobil                                                                         */
+/*********************************************************************************/
+       @media screen and (min-width: 0px) and (max-width:480px)
+       
+       {
+           body,input,textarea,select
+	{
+		line-height: 1.75em;
+		font-size: 10.5pt;
+		letter-spacing: 0;
+	}
+
+	body
+	{
+		padding-top: 44px;
+	}
+
+	h2, h3, h4, h5, h6
+	{
+		line-height: 1em;
+		font-size: 1.5em;
+	}
+
+	section,
+	article
+	{
+		clear: both;
+		margin: 2em 0 2em 0 !important;
+	}
+
+	section > :first-child,
+	article > :first-child
+	{
+		margin-top: 0 !important;
+	}
+
+	section:first-child,
+	article:first-child
+	{
+		margin-top: 0 !important;
+	}
+	
+	.container
+	{
+		padding: 0em 1em;
+	}
+
+	hr
+	{
+		margin: 3em 0 0 0;
+		padding: 3em 0 0 0;
+	}
+
+	header
+	{
+		margin-bottom: 1.6em;
+	}
+	
+		header h2
+		{
+			font-size: 2em;
+		}
+
+		header .byline
+		{
+			font-size: 1.2em;
+		}
+
+	.button
+	{
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+/*********************************************************************************/
+/* UI                                                                            */
+/*********************************************************************************/
+
+	#titleBar
+	{
+		background: #161616;
+	}
+
+		#titleBar .title a
+		{
+			display: block;
+			color: #fff;
+			text-align: center;
+			line-height: 44px;
+			font-weight: 300;
+			text-decoration: none;
+		}
+		
+		#titleBar .tag
+		{
+			display: none;
+		}
+
+		#titleBar .toggle
+		{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 80px;
+			height: 60px;
+		}
+
+			#titleBar .toggle:after
+			{
+				content: '';
+				display: block;
+				width: 20px;
+				height: 12px;
+				position: absolute;
+				left: 10px;
+				top: 15px;
+				background: url('images/toggle.svg') 0px 0px no-repeat;
+				opacity: 0.5;
+			}
+
+			#titleBar .toggle:active:after
+			{
+				opacity: 0.75;
+			}
+
+	#navPanel
+	{
+		background: #1f1f1f;
+	}
+
+		#navPanel .link
+		{
+			display: block;
+			color: #888;
+			text-decoration: none;
+			height: 44px;
+			line-height: 44px;
+			border-top: solid 1px;
+			border-color: rgba(255,255,255,.05);
+			padding: 0 1em 0 1em;
+			letter-spacing: 1px;
+		}
+		
+			#navPanel .link:first-child
+			{
+				border-top: 0;
+			}
+			
+			#navPanel .link.depth-0
+			{
+				color: #fff;
+			}
+
+			#navPanel .indent-1 { display: inline-block; width: 1em; }
+			#navPanel .indent-2 { display: inline-block; width: 2em; }
+			#navPanel .indent-3 { display: inline-block; width: 3em; }
+			#navPanel .indent-4 { display: inline-block; width: 4em; }
+			#navPanel .indent-5 { display: inline-block; width: 5em; }
+			#navPanel .depth-0 { color: #fff; }
+                        
+                        
+                        
+/*********************************************************************************/
+/* Connect                                                                       */
+/*********************************************************************************/
+/*        #connect
+        {
+           margin-right: 100px;
+           margin-top: 100px;
+        }
+        
+        .button-connection
+        {
+            width: 10px;
+            height: 25px;
+
+        }*/
+
+
+/*********************************************************************************/
+/* Form Inscription                                                                      */
+/*********************************************************************************/
+
+        #form-inscription
+        {
+            margin-top: 0;
+            width: 300px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #form-inscription ul 
+        {
+                margin: 0;
+        }
+        #form-inscription li
+        {
+                margin-left: 0;
+                margin-bottom: 10px;
+                position: relative;
+                height: 60px;
+                color: #666;
+                font-size: 12px;
+                list-style-type: none;
+                text-shadow: 0 1px 0 #FFF;
+        }
+
+        #form-inscription label 
+        {
+                display: block; 
+                height: 23px;
+        }
+
+        #form-inscription li.textarea
+        {
+                height: 85px;
+        }
+        #form-inscription li.button_form
+        {
+                margin-bottom: 8px;
+                position: relative;
+                height: 20px;
+                list-style-type: none;
+        }
+        #form-inscription input, textarea
+        {
+                width: 250px;
+                margin-bottom: 4px;
+                color: #666;
+                border: 1px solid #FFF;
+                padding: 10px 5px;
+                -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+            -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+                box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+        #form-inscription input.submit
+        {
+
+                width: 100px;
+                height: 30px; 
+                border: 2px solid #ccc;
+                background: #70AA7E;
+                color: #fff;
+                line-height: 1;
+                text-align: center;
+                text-shadow: 0 1px 1px #555;
+                font-family: 'Roboto', sans-serif;
+                font-size: 11px; 
+        }
+        
+
+        #form-inscription input.submit:hover 
+        {
+                text-shadow: 0 1px 1px #555;
+                color: #fff;
+                background: #A2A2A2; 
+        }
+
+			
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
+	{
+		height: 10em;
+		padding: 0;
+		background-position: center center;
+		background-attachment: scroll;
+	}
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+	#logo
+	{
+		display: none;
+	}
+	
+	#nav
+	{
+		display: none;
+	}
+
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+		padding: 4em 0em 2em 0em;
+	}
+
+	.homepage #content header h2
+	{
+		padding: 0.70em 0em;
+		font-size: 1.4em;
+	}
+
+	#sidebar h2
+	{
+		font-size: 1.8em;
+	}
+        
+           #main #haut
+        {
+            width: 70px;
+            margin-bottom: -10px;
+            display: block;
+            margin: auto;
+            padding: 6em 0 0 0;
+
+        }
+        
+/*********************************************************************************/
+/* Calendar                                                                      */
+/*********************************************************************************/
+
+        #calendar
+        {
+            padding: 3em 0;
+        }
+        
+        #calendar img
+        {
+            width : 300px;
+        }
+
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+	
+	#footer
+	{
+		padding: 4em 0em 2em 0em;
+	}
+	
+/*********************************************************************************/
+/* Featured                                                                      */
+/*********************************************************************************/
+	
+	#featured
+	{
+		padding: 4em 0em 3em 0em;
+	}
+
+	#featured h3
+	{
+		padding: 1.5em 0em;
+		font-size: 1.4em;
+	}
+
+/*********************************************************************************/
+/* Welcome                                                                       */
+/*********************************************************************************/
+	
+	#welcome
+	{
+		padding: 4em 0em 3em 0em;
+	}
+	
+/*********************************************************************************/
+/* Tweet                                                                         */
+/*********************************************************************************/
+	
+	#tweet
+	{
+		padding: 3em 0em 1em 0em;
+		background-position: center center;
+		background-attachment: scroll;
+	}
+
+	#tweet blockquote
+	{
+		margin: 0;
+		padding: 1em 1em;
+		font-size: 1.2em;
+	}
+       }
+       
+
+       
+/*********************************************************************************/
+/* Media Queries Desktop                                                                         */
+/*********************************************************************************/
+       @media screen and (min-width: 481px) and (max-width: 1920px)
+       
+       {
+            /*********************************************************************************/
+            /* Basic                                                                         */
+            /*********************************************************************************/
+
+                    body
+                    {
+                    }
+
+                    body,input,textarea,select
+                    {
+                    }
+
+                    header
+                    {
+                            margin-bottom: 1.6em;
+                    }
+
+                    header h2
+                    {
+                            font-size: 3.4em;
+                    }
+
+                    header .byline
+                    {
+                            font-size: 1.7em;
+                    }
+
+            /*********************************************************************************/
+            /* Header                                                                        */
+            /*********************************************************************************/
+
+                    #header
+                    {
+                            padding: 10em 0 6em 0;
+                    }
+
+                    .homepage #header
+                    {
+                            padding: 16em 0 12em 0;
+                    }
+
+            /*********************************************************************************/
+            /* Main                                                                          */
+            /*********************************************************************************/
+
+                    #main
+                    {
+                            padding: 6em 0 2em 0;
+                    }
+
+                    .homepage #content header h2
+                    {
+                            padding: 0.70em 0em;
+                            font-size: 2.2em;
+                    }
+
+                    #sidebar h2
+                    {
+                            font-size: 2.4em;
+                    }
+
+            /*********************************************************************************/
+            /* Footer                                                                        */
+            /*********************************************************************************/
+
+                    #footer
+                    {
+                            padding: 6em 0em;
+                    }
+
+            /*********************************************************************************/
+            /* Featured                                                                      */
+            /*********************************************************************************/
+
+                    #featured
+                    {
+                            padding: 6em 0em;
+                    }
+
+                    #featured h3
+                    {
+                            padding: 1.5em 0em;
+                            font-size: 1.6em;
+                    }
+
+                    #featured header
+                    {
+                            margin-bottom: 3em;
+                    }
+
+                    #featured p
+                    {
+                            line-height: 2em;
+                            font-size: 1.2em;
+                    }
+
+            /*********************************************************************************/
+            /* Tweet                                                                         */
+            /*********************************************************************************/
+
+                    #tweet
+                    {
+                            padding: 6em 0em;
+                    }
+
+                    #tweet blockquote
+                    {
+                            margin: 0;
+                            padding: 1em 4em;
+                            line-height: 1.5em;
+                            font-size: 1.8em;
+                    }	
+    }
+       
+/*********************************************************************************/
+/* Media Queries 1000px                                                                        */
+/*********************************************************************************/
+       @media screen and (min-width: 481px) and (max-width:1200px)
+       
+       {
+            /*********************************************************************************/
+            /* Basic                                                                         */
+            /*********************************************************************************/
+
+                    body
+                    {
+                    }
+
+                    body,input,textarea,select
+                    {
+                            font-size: 11pt;
+                    }
+
+                    header
+                    {
+                            margin-bottom: 1.6em;
+                    }
+
+                            header h2
+                            {
+                                    font-size: 2.8em;
+                            }
+
+                            header .byline
+                            {
+                                    font-size: 1.2em;
+                            }
+
+            /*********************************************************************************/
+            /* Main                                                                          */
+            /*********************************************************************************/
+
+                    #main
+                    {
+                    }
+
+                    .homepage #content header h2
+                    {
+                            font-size: 1.8em;
+                    }
+
+                    #sidebar h2
+                    {
+                            font-size: 2em;
+                    }
+
+            /*********************************************************************************/
+            /* Tweet                                                                         */
+            /*********************************************************************************/
+
+                    #tweet
+                    {
+                    }
+
+                    #tweet blockquote
+                    {
+                            font-size: 1.6em;
+                    }
+       }
