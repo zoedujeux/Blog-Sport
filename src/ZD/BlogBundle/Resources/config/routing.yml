@@ -4,7 +4,7 @@ zd_blog_home:
     
 zd_blog_view:
     path: /article/{id}
-    defaults:  { _controller: ZDBlogBundle:Article:view, page: 1 }
+    defaults:  { _controller: ZDBlogBundle:Article:view}
     
 zd_blog_add:
     path: /add
