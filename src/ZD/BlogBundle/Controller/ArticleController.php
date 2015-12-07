@@ -23,7 +23,7 @@ class ArticleController extends Controller
             ));
     }
     
-    public function viewAction($id, Request $request)
+    public function viewAction( Request $request)
     {
          $article = array (
              'titleH2' => "Titre de l'article",

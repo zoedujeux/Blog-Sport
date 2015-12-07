@@ -1,9 +1,9 @@
 zd_blog_home:
-    path: /{page}
+    path: /index
     defaults:  { _controller: ZDBlogBundle:Article:index }
     
 zd_blog_view:
-    path: /article/{id}
+    path: /article
     defaults:  { _controller: ZDBlogBundle:Article:view}
     
 zd_blog_add:
