@@ -3,3 +3,7 @@ zd_blog:
     prefix:   /blog
 
 
+zd_blog.Admin:
+    resource: "@ZDBlogBundle/Resources/config/admin-routing.yml"
+    prefix:   /admin/blog
+
