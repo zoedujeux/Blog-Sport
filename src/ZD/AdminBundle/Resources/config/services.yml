@@ -1,0 +1,4 @@
+services:
+#    zd_admin.example:
+#        class: ZD\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

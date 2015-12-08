@@ -1,9 +1,13 @@
+zd_admin:
+    resource: "@ZDAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 zd_blog:
     resource: "@ZDBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
 
 
-zd_blog.Admin:
-    resource: "@ZDAdminBundle/Resources/config/admin-routing.yml"
-    prefix:   /admin/blog
+#zd_admin.Admin:
+#    resource: "@ZDAdminBundle/Resources/config/admin-routing.yml"
+#    prefix:   /admin/blog
 

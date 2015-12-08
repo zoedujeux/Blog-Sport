@@ -1,5 +1,0 @@
-zd_blog_admin_home:
-    path: /
-    defaults: {_controller: ZDAdminBundle:Admin:index}
-    requirements:
-        _method: GET
