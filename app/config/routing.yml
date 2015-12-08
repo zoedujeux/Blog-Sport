@@ -4,6 +4,6 @@ zd_blog:
 
 
 zd_blog.Admin:
-    resource: "@ZDBlogBundle/Resources/config/admin-routing.yml"
+    resource: "@ZDAdminBundle/Resources/config/admin-routing.yml"
     prefix:   /admin/blog
 
