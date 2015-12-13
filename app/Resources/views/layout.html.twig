@@ -74,8 +74,8 @@
                                    
                                     <ul>
                                  
-                                        <li> <a href='inscription.html' class="text-connexion">S'inscrire</a></li>
-                                        <li> <a href='connexion.html' class="text-connexion">Se connecter</a></li>
+                                        <li> <a href="{{ path('zd_blog_register') }}" class="text-connexion">S'inscrire</a></li>
+                                        <li> <a href="{{ path('zd_blog_login') }}" class="text-connexion">Se connecter</a></li>
                                         <li>{% image '@ZDBlogBundle/Resources/public/images/connect.png' %}
                                         <a href="persoPage.html"><img class="button-connexion" src="{{asset_url}}" alt="imgConnect" /></a>
                                         {% endimage %}
