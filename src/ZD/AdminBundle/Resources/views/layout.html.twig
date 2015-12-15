@@ -116,7 +116,7 @@
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Semaine 1 <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
-                    <li id="jour1"> <a href="#">Jour 1</a></li>
+                    <li id="jour1"> <a href="{{ path('zd_admin_addDay') }}">Jour 1</a></li>
                     <li id="jour2"> <a href="#">Jour 2</a></li>
                     <li id="jour3"> <a href="#">Jour 3</a></li>
                     <li id="jour4"> <a href="#">Jour 4</a></li>
@@ -213,6 +213,9 @@
                 <div class="row">
                     
               <!--     $content-->
+              
+             {% block content %}
+             {% endblock %}
               
               
                     </div>

@@ -4,7 +4,8 @@ namespace ZD\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use ZB\AdminBundle\Entity\Day;
+use ZD\AdminBundle\Entity\Day;
+use ZD\AdminBundle\Form\DayType;
 
 class AdminController extends Controller
 {
