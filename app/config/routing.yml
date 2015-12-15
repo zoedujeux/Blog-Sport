@@ -1,3 +1,7 @@
+zd_user:
+    resource: "@ZDUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 zd_admin:
     resource: "@ZDAdminBundle/Resources/config/routing.yml"
     prefix:   /
