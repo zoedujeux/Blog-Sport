@@ -9,3 +9,11 @@ zd_admin_view:
 zd_admin_addDay:
     path:     /addDay
     defaults: { _controller: ZDAdminBundle:Admin:addDay}
+    
+zd_admin_viewHome:
+    path:   /viewHome
+    defaults: { _controller: ZDAdminBundle:Admin:home}
+    
+zd_admin_addHome:
+    path:   /addHome
+    defaults: { _controller: ZDAdminBundle:Admin:addHome}

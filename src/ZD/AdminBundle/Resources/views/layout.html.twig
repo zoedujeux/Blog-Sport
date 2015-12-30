@@ -110,7 +110,7 @@
         <ul class="nav navbar-nav side-nav">
             
             <li id="index">
-                <a href="#"><i class="fa fa-fw fa-edit"></i> Index</a>
+                <a href="{{ path('zd_admin_viewHome') }}"><i class="fa fa-fw fa-edit"></i> Index</a>
             </li>
             
             <li>
@@ -213,7 +213,9 @@
                 <div class="row">
                     
               <!--     $content-->
-              
+              {% block title %}
+             {% endblock %}
+             
              {% block content %}
              {% endblock %}
               
