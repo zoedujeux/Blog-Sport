@@ -12,7 +12,7 @@ zd_admin_addDay:
     
 zd_admin_viewHome:
     path:   /viewHome
-    defaults: { _controller: ZDAdminBundle:Admin:home}
+    defaults: { _controller: ZDAdminBundle:Admin:viewHome}
     
 zd_admin_addHome:
     path:   /addHome
