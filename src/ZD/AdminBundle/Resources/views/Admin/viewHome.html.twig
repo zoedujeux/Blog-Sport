@@ -13,21 +13,22 @@
                                 <thead>
                                     <tr>
                                         <th>Titre H1</th>
-                                        <th>Titre H2</th>
                                         <th>Content</th>
+                                        <th>Titre H2</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 
                                 <tbody>
                                     <tr>
-                                        <td>coucou</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ home.titleH1 }}</td>
+                                        <td>{{ home.content }}</td>
+                                        <td>{{ home.titleH2 }}</td>
                                         
-                                        {#<td>{{ home.TitleH1 }}</td>
-                                        <td>{{ home.TitleH1 }}</td>
-                                        <td>{{ home.Content }}</td>#}
+                                        {# {% for advert in listAdverts %}
+                                            <li>{{ advert.content }}</li>
+                                          {% endfor %}#}
+                                        
                                         
                                         <td><a href="" id="edit" class="btn btn-success">edit</a>
                                             <a href="" id="delete" class="btn btn-success">delete</a></td>
@@ -37,7 +38,7 @@
                                 </tbody>
                             </table>
                                     
-                                    <a href="" id="create" class="btn btn-success">create new table</a>
+                                    <a href="{{ path('zd_admin_addHome') }}" id="create" class="btn btn-success">create new table</a>
                         </div>
                     </div>
      
