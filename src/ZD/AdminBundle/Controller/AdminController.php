@@ -17,19 +17,20 @@ class AdminController extends Controller
         return $this->render('ZDAdminBundle:Admin:index.html.twig');
     }
     
-    public function viewHomeAction($id)
+    public function viewHomeAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $home = $em->getRepository('ZDAdminBundle:Home')->find($id);
+//        $em = $this->getDoctrine()->getManager();
+//        $home = $em->getRepository('ZDAdminBundle:Home')->findAll();
 
-        // On vérifie que l'annonce avec cet id existe bien
-        if ($home === null) {
-          throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
-        }
+         $listHome = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Home')
+            ->findAll()
+          ;
 
         // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
         return $this->render('ZDAdminBundle:Admin:viewHome.html.twig', array(
-          'home'           => $home,
+          'listHome'       => $listHome,
         ));
   
     }

@@ -12,6 +12,7 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>Id</th>
                                         <th>Titre H1</th>
                                         <th>Content</th>
                                         <th>Titre H2</th>
@@ -21,13 +22,12 @@
                                 
                                 <tbody>
                                     <tr>
-                                        <td>{{ home.titleH1 }}</td>
+                                        {% for home in listHome %}
+                                        <td>{{ home.id }}</td> 
+                                        <td>{{ home.titleH1 }}</td> 
                                         <td>{{ home.content }}</td>
                                         <td>{{ home.titleH2 }}</td>
-                                        
-                                        {# {% for advert in listAdverts %}
-                                            <li>{{ advert.content }}</li>
-                                          {% endfor %}#}
+                                        {% endfor %}
                                         
                                         
                                         <td><a href="" id="edit" class="btn btn-success">edit</a>

@@ -1,0 +1,66 @@
+<?php
+
+namespace ZD\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * H3
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class H3
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="H3", type="string", length=255)
+     */
+    private $h3;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set h3
+     *
+     * @param string $h3
+     *
+     * @return H3
+     */
+    public function setH3($h3)
+    {
+        $this->h3 = $h3;
+
+        return $this;
+    }
+
+    /**
+     * Get h3
+     *
+     * @return string
+     */
+    public function getH3()
+    {
+        return $this->h3;
+    }
+}
+
