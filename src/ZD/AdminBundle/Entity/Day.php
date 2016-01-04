@@ -31,9 +31,9 @@ class Day
     /**
      * @var string
      *
-     * @ORM\Column(name="titleH3", type="string", length=255)
+     * @ORM\Column(name="H3", type="string", length=255)
      */
-    private $titleH3;
+    private $H3;
 
     /**
      * @var string
@@ -42,10 +42,7 @@ class Day
      */
     private $content;
     
-    /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Image", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
-    */
+
     private $image;
 
 
@@ -90,9 +87,9 @@ class Day
      *
      * @return Day
      */
-    public function setTitleH3($titleH3)
+    public function setH3($H3)
     {
-        $this->titleH3 = $titleH3;
+        $this->H3 = $H3;
 
         return $this;
     }
@@ -102,9 +99,9 @@ class Day
      *
      * @return string
      */
-    public function getTitleH3()
+    public function getH3()
     {
-        return $this->titleH3;
+        return $this->H3;
     }
 
     /**

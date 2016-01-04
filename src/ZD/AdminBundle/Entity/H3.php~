@@ -67,28 +67,5 @@ class H3
     {
         return $this->h3;
     }
-
-    /**
-     * Set day
-     *
-     * @param \ZD\AdminBundle\Entity\Day $day
-     *
-     * @return H3
-     */
-    public function setDay(\ZD\AdminBundle\Entity\Day $day)
-    {
-        $this->day = $day;
-
-        return $this;
-    }
-
-    /**
-     * Get day
-     *
-     * @return \ZD\AdminBundle\Entity\Day
-     */
-    public function getDay()
-    {
-        return $this->day;
-    }
 }
+

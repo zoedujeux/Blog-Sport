@@ -35,7 +35,12 @@ class Image
      */
     private $alt;
 
-
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day")
+    * @ORM\JoinColumn(nullable=false)
+    */
+     private $day;
     /**
      * Get id
      *
@@ -44,6 +49,18 @@ class Image
     public function getId()
     {
         return $this->id;
+    }
+    
+    private $file;
+
+    public function getFile()
+    {
+      return $this->file;
+    }
+
+    public function setFile(UploadedFile $file = null)
+    {
+      $this->file = $file;
     }
 
     /**
@@ -93,5 +110,28 @@ class Image
     {
         return $this->alt;
     }
-}
 
+    /**
+     * Set day
+     *
+     * @param \ZD\AdminBundle\Entity\Day $day
+     *
+     * @return Image
+     */
+    public function setDay(\ZD\AdminBundle\Entity\Day $day)
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
+    /**
+     * Get day
+     *
+     * @return \ZD\AdminBundle\Entity\Day
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+}

@@ -23,6 +23,8 @@ class ArticleController extends Controller
           return $this->render('ZDBlogBundle:Article:index.html.twig', array(
             'index' => $index
             ));
+          
+//          return $this->render( controller('ZDAdminBundle:Admin:viewHome'));
     }
     
     public function viewAction( Request $request)
