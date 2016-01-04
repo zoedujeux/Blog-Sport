@@ -1,1 +1,51 @@
-{# empty Twig template #}
+{% extends "ZDAdminBundle::layout.html.twig" %}
+
+{% block title %}
+Jour
+{% endblock %}
+
+{% block content %}
+    
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre H2</th>
+                                        <th>Content</th>
+                                        <th>Titre H3</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr>
+                                        {% for day in listDay %}
+                                        <td>{{ day.id }}</td> 
+                                        <td>{{ day.titleH2 }}</td> 
+                                        <td>{{ day.content }}</td>
+                                        <td>{{ day.titleH3 }}</td>
+                                        <td>{{ day.image }}</td>
+                                        {% endfor %}
+                                        
+                                        
+                                        <td><a href="" id="edit" class="btn btn-success">edit</a>
+                                            <a href="" id="delete" class="btn btn-success">delete</a></td>
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('zd_admin_addDay') }}" id="create" class="btn btn-success">Ajouter un jour</a>
+                        </div>
+                    </div>
+     
+     
+     
+ </div>
+
+{% endblock %}

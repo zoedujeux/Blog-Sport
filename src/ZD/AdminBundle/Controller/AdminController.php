@@ -55,6 +55,7 @@ class AdminController extends Controller
       // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
       return $this->render('ZDAdminBundle:Admin:addHome.html.twig', array(
         'form' => $form->createView(),
+        'home' => $home
       ));
     }
     
@@ -63,27 +64,46 @@ class AdminController extends Controller
         return $this->render('ZDAdminBundle:Admin:week.html.twig');
     }
     
+    
+    public function viewDayAction()
+    {
+
+         $listDay = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Day')
+            ->findAll()
+          ;
+
+        // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
+        return $this->render('ZDAdminBundle:Admin:viewDay.html.twig', array(
+          'listDay'       => $listDay,
+        ));
+  
+    }
+    
     public function addDayAction(Request $request)
     {
-        $day= new Day();
-        $form = $this->get('form.factory')->create(new DayType(), $day);
+        
+        $day = new Day();
+        $form = $this->createForm(new DayType(), $day);
 
-         dump ($day);
-        die();
         if ($form->handleRequest($request)->isValid()) {
-            
-           
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($day);
-          $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($day);
+        $em->flush();
 
-          $request->getSession()->getFlashBag()->add('notice', 'Jour bien enregistrée.');
+        $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
 
-          return $this->redirect($this->generateUrl('zd_admin_view', array('id' => $day->getId())));
-        }
+        return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId())));
+      }
 
-        return $this->render('ZDAdminBundle:Admin:day.html.twig', array(
-          'form' => $form->createView(),
-        ));
+      // À ce stade, le formulaire n'est pas valide car :
+      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+      // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+      return $this->render('ZDAdminBundle:Admin:addDay.html.twig', array(
+        'form' => $form->createView(),
+        'day' => $day
+      ));
+        
     }
 }

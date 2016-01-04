@@ -21,6 +21,7 @@ class H3
      */
     private $id;
 
+ 
     /**
      * @var string
      *
@@ -29,9 +30,10 @@ class H3
     private $h3;
     
     /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day")
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="H3s")
     * @ORM\JoinColumn(nullable=false)
     */
+
      private $day;
 
     /**

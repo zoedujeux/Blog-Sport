@@ -6,6 +6,11 @@ zd_admin_view:
     path:     /view/
     defaults: { _controller: ZDAdminBundle:Admin:view }
     
+    
+zd_admin_viewDay:
+    path:   /viewDay
+    defaults: { _controller: ZDAdminBundle:Admin:viewDay}
+    
 zd_admin_addDay:
     path:     /addDay
     defaults: { _controller: ZDAdminBundle:Admin:addDay}

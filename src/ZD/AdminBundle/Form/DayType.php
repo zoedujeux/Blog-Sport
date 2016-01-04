@@ -16,17 +16,17 @@ class DayType extends AbstractType
     {
         $builder
             ->add('titleH2',    'text')
-            ->add('H3','collection', array(
+            ->add('H3s','collection', array(
                 'type'         => new H3Type(),
                 'allow_add'    => true,
                 'allow_delete' => true
             ))
-            ->add('content','collection', array(
+            ->add('contents','collection', array(
                 'type'         => new ContentType(),
                 'allow_add'    => true,
                 'allow_delete' => true
             ))
-            ->add('image', 'collection', array(
+            ->add('images', 'collection', array(
                 'type'         => new ImageType(),
                 'allow_add'    => true,
                 'allow_delete' => true

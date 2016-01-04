@@ -10,4 +10,81 @@ namespace ZD\AdminBundle\Entity;
  */
 class DayRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    public function myFindAll()
+    {
+
+      $queryBuilder = $this->createQueryBuilder('d');
+
+      // On récupère la Query à partir du QueryBuilder
+      $query = $queryBuilder->getQuery();
+
+      // On récupère les résultats à partir de la Query
+      $results = $query->getResult();
+
+      // On retourne ces résultats
+      return $results;
+    }
+//    public function getDayWithH3s(array $h3Names)
+//  {
+//    $qb = $this->createQueryBuilder('d');
+//
+//    // On fait une jointure avec l'entité Category avec pour alias « c »
+//    $qb
+//      ->join('d.h3s', 'h')
+//      ->addSelect('h')
+//    ;
+//
+//    // Puis on filtre sur le nom des catégories à l'aide d'un IN
+//    $qb->where($qb->expr()->in('h.name', $h3Names));
+//    // La syntaxe du IN et d'autres expressions se trouve dans la documentation Doctrine
+//
+//    // Enfin, on retourne le résultat
+//    return $qb
+//      ->getQuery()
+//      ->getResult()
+//    ;
+//  }
+  
+  public function getDayWithContents(array $contentNames)
+  {
+    $qb = $this->createQueryBuilder('d');
+
+    
+    $qb
+      ->join('d.contents', 'c')
+      ->addSelect('c')
+    ;
+
+   
+    $qb->where($qb->expr()->in('c.name', $contentNames));
+  
+
+ 
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
+  
+   public function getDayWithImages(array $imageNames)
+  {
+    $qb = $this->createQueryBuilder('d');
+
+    
+    $qb
+      ->join('d.images', 'i')
+      ->addSelect('i')
+    ;
+
+   
+    $qb->where($qb->expr()->in('i.name', $imageNames));
+  
+
+ 
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
 }

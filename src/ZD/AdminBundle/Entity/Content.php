@@ -29,7 +29,7 @@ class Content
     private $content;
     
     /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day")
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="Contents")
     * @ORM\JoinColumn(nullable=false)
     */
      private $day;
