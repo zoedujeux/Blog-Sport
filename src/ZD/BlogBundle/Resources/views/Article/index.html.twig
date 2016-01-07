@@ -1,7 +1,11 @@
 {% extends "ZDBlogBundle::layoutIndex.html.twig" %}
 
 
-{% block h1 %}{{ home.titleH1 }}{% endblock %}
+{% block h1 %} 
+    {% for home in listHome %}
+    {{ include('ZDAdminBundle:Admin:viewHome.html.twig', { 'home': home.titleH1 }) }}
+    {% endfor %}
+{% endblock %}
 {% block tag %}Zoé Dujeux{% endblock %}
 
 
@@ -10,9 +14,9 @@
     <div id="featured">
 			<div class="container">
 				<header>
-					<h2>{{ home.titleH2 }} </h2>
+					<h2> </h2>
 				</header>
-				<p>{{ home.content }}</p>
+				<p></p>
 				<hr />
 				<div class="row">
 					<section class="4u">

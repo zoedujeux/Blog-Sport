@@ -12,19 +12,12 @@ class ArticleController extends Controller
 {
      public function indexAction()
     {
-//          $content = $this->get('templating')->render('ZDBlogBundle:Article:index.html.twig');
-//            
-//          return new Response($content);
-         $index = array (
-             'titleH1' => "Blog Sportif",
-             'titleH2' => "Salut les filles !",
-             'content' => "Blabla pour le moment"
-         );
-          return $this->render('ZDBlogBundle:Article:index.html.twig', array(
-            'index' => $index
-            ));
+         
+          return $this->render('ZDBlogBundle:Article:index.html.twig');
+
+         
           
-//          return $this->render( controller('ZDAdminBundle:Admin:viewHome'));
+
     }
     
     public function viewAction( Request $request)
