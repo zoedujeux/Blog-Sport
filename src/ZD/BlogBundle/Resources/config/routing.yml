@@ -22,6 +22,8 @@ zd_blog_add:
     path: /add
     defaults:  { _controller: ZDBlogBundle:Article:add }
     
+
+    
 #zd_blog_edit:
 #    path: /edit/{id}
 #    defaults: {_controller: ZDBlogBundle:Article:edit}

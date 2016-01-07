@@ -15,27 +15,28 @@ Jour
                                         <th>Id</th>
                                         <th>Titre H2</th>
                                         <th>Content</th>
-                                        <th>Titre H3</th>
                                         <th>Image</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 
                                 <tbody>
-                                    <tr>
+                                    
                                         {% for day in listDay %}
-                                        <td>{{ day.id }}</td> 
-                                        <td>{{ day.titleH2 }}</td> 
-                                        <td>{{ day.content }}</td>
-                                        <td>{{ day.titleH3 }}</td>
-                                        <td>{{ day.image }}</td>
+                                        <tr>
+                                            <td>{{ day.id }}</td> 
+                                            <td>{{ day.titleH2 }}</td> 
+                                            <td>{{ day.content }}</td>
+                                            <td></td>
+
+                                            <td><a href="" id="edit" class="btn btn-success">edit</a>
+                                                <a href="" id="delete" class="btn btn-success">delete</a></td>
+
+                                        </tr>
                                         {% endfor %}
                                         
                                         
-                                        <td><a href="" id="edit" class="btn btn-success">edit</a>
-                                            <a href="" id="delete" class="btn btn-success">delete</a></td>
-
-                                    </tr>
+                                       
                                     
                                 </tbody>
                             </table>

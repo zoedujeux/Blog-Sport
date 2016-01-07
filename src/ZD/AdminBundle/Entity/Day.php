@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ZD\AdminBundle\Entity\DayRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Day
 {
@@ -29,21 +30,13 @@ class Day
      */
     private $titleH2;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="H3", type="string", length=255)
-     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\H3", mappedBy="day")
-    */
-    private $H3s;
 
     /**
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=255)
-     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\\Entity\Content", mappedBy="day")
      */
-    private $contents;
+    private $content;
     
     /**
      * @var string
@@ -54,51 +47,25 @@ class Day
     
     public function __construct()
     {
-      $this->H3s = new ArrayCollection();
-      $this->contents = new ArrayCollection();
       $this->images = new ArrayCollection();
-    }
-
-    // Notez le singulier, on ajoute un seul h3 à la fois
-    public function addH3(H3 $H3)
-    {
-      // Ici, on utilise l'ArrayCollection vraiment comme un tableau
-      $this->H3s[] = $H3;
-
-      return $this;
-    }
-
-    public function removeH3(H3 $H3)
-    {
-      // Ici on utilise une méthode de l'ArrayCollection, pour supprimer le h3 en argument
-      $this->H3s->removeElement($H3);
-    }
-
-    // Notez le pluriel, on récupère une liste de h3 ici !
-    public function getH3s()
-    {
-      return $this->H3s;
-    }
+    }   
     
     
-    public function addContent(Content $content)
+    public function setContent($content)
     {
-      
-      $this->contents[] = $content;
+        $this->content = $content;
 
-      return $this;
+        return $this;
     }
 
-    public function removeContent(Content $content)
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
     {
-      
-      $this->contents->removeElement($content);
-    }
-
-    
-    public function getContents()
-    {
-      return $this->contents;
+        return $this->content;
     }
     
     

@@ -21,19 +21,21 @@
                                 </thead>
                                 
                                 <tbody>
-                                    <tr>
+                                    
                                         {% for home in listHome %}
+                                            <tr>
                                         <td>{{ home.id }}</td> 
                                         <td>{{ home.titleH1 }}</td> 
                                         <td>{{ home.content }}</td>
                                         <td>{{ home.titleH2 }}</td>
+                                        <td><a href="{{ path('zd_admin_editHome', {'id': home.id}) }}" id="edit" class="btn btn-success">edit</a>
+                                            <a href="{{ path('zd_admin_deleteHome', {'id': home.id}) }}" id="delete" class="btn btn-success">delete</a></td>
+
+                                    </tr>
                                         {% endfor %}
                                         
                                         
-                                        <td><a href="" id="edit" class="btn btn-success">edit</a>
-                                            <a href="" id="delete" class="btn btn-success">delete</a></td>
-
-                                    </tr>
+                                        
                                     
                                 </tbody>
                             </table>

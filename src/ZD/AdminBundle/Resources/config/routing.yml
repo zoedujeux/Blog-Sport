@@ -22,3 +22,11 @@ zd_admin_viewHome:
 zd_admin_addHome:
     path:   /addHome
     defaults: { _controller: ZDAdminBundle:Admin:addHome}
+    
+zd_admin_editHome:
+    path:   /editHome/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:editHome}
+    
+zd_admin_deleteHome:
+    path:   /deleteHome/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:deleteHome}

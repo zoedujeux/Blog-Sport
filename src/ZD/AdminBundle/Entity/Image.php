@@ -7,9 +7,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Image
- *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  */
 class Image
 {
@@ -230,8 +230,8 @@ class Image
     }
     
   
-      public function getWebPath()
+    public function __toString() 
     {
-      return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
+        return $this->getUrl();
     }
 }

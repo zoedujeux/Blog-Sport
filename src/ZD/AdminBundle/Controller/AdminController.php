@@ -8,6 +8,8 @@ use ZD\AdminBundle\Entity\Day;
 use ZD\AdminBundle\Form\DayType;
 use ZD\AdminBundle\Entity\Home;
 use ZD\AdminBundle\Form\HomeType;
+use ZD\AdminBundle\Entity\HomeEdit;
+use ZD\AdminBundle\Form\HomeEditType;
 
 class AdminController extends Controller
 {
@@ -35,6 +37,10 @@ class AdminController extends Controller
   
     }
     
+    //**********************************************************
+    //****ADD*************************************************
+    //**********************************************************
+    
     public function addHomeAction(Request $request)
     {
         $home = new Home();
@@ -56,6 +62,79 @@ class AdminController extends Controller
       return $this->render('ZDAdminBundle:Admin:addHome.html.twig', array(
         'form' => $form->createView(),
         'home' => $home
+      ));
+    }
+    
+    //**********************************************************
+    //****EDIT*************************************************
+    //**********************************************************
+    
+    public function editHomeAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $home = $em->getRepository('ZDAdminBundle:Home')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($home == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+        $form = $this->createForm(new HomeEditType(), $home);
+
+        if ($form->handleRequest($request)->isValid()) {
+          // Inutile de persister ici, Doctrine connait déjà notre annonce
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+
+          return $this->redirect($this->generateUrl('zd_admin_viewHome', array('id' => $home->getId())));
+        }
+
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+
+      return $this->render('ZDAdminBundle:Admin:editHome.html.twig', array(
+        'form'   => $form->createView(),
+        'home' => $home
+      ));
+    }
+    
+    
+    //**********************************************************
+    //****DELETE*************************************************
+    //**********************************************************
+    public function deleteHomeAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $home = $em->getRepository('ZDAdminBundle:Home')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($home == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      
+        // On crée un formulaire vide, qui ne contiendra que le champ CSRF
+        // Cela permet de protéger la suppression d'annonce contre cette faille
+        $form = $this->createFormBuilder()->getForm();
+
+        if ($form->handleRequest($request)->isValid()) {
+          $em->remove($home);
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
+
+          return $this->redirect($this->generateUrl('zd_admin_viewHome'));
+        }
+
+      // Si la requête est en GET, on affiche une page de confirmation avant de delete
+      return $this->render('ZDAdminBundle:Admin:deleteHome.html.twig', array(
+         'home' => $home,
+         'form'=> $form->createView()
       ));
     }
     

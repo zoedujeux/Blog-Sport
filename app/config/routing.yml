@@ -1,3 +1,7 @@
+zdck_editor:
+    resource: "@ZDCKEditorBundle/Resources/config/routing.yml"
+    prefix:   /
+
 zd_user:
     resource: "@ZDUserBundle/Resources/config/routing.yml"
     prefix:   /
