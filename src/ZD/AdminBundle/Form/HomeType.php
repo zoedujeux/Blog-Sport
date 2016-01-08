@@ -16,7 +16,7 @@ class HomeType extends AbstractType
     {
         $builder
             ->add('titleH1',    'text')
-            ->add('content',    'text')
+            ->add('content',    'textarea')
             ->add('titleH2',    'text')
             ->add('save',   'submit')
         ;

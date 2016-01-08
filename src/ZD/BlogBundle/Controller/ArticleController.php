@@ -13,26 +13,36 @@ class ArticleController extends Controller
      public function indexAction()
     {
          
-          return $this->render('ZDBlogBundle:Article:index.html.twig');
+         $articles= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Home')
+            ->findAll()
+          ;
+          return $this->render('ZDBlogBundle:Article:index.html.twig', array (
+              "articles"    =>$articles,
+             
+          ));
 
          
           
 
     }
     
-    public function viewAction( Request $request)
+    public function viewAction()
     {
-         $article = array (
-             'titleH2' => "Titre de l'article",
-             'titleH3' => "Sous-titre de l'article",
-             'image' => "Image",
-             'content'=> "texte général",
-         );
-                 
-            return $this->render('ZDBlogBundle:Article:view.html.twig', array(
-            'article' => $article
+         $articles= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Day')
+            ->findAll()
+          ;
+          return $this->render('ZDBlogBundle:Article:view.html.twig', array (
+              "articles"    =>$articles,
+             
           ));
     }
+    
+    
+    
     
     public function registerAction (Request $request)
     {

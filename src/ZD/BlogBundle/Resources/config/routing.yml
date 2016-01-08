@@ -1,17 +1,17 @@
-zd_blog_home:
-#    path: /index
-#    defaults:  { _controller: ZDBlogBundle:Article:index }
-    path:      /{page}
-    defaults:
-        _controller: ZDBlogBundle:Article:index
-        page:        1
+#zd_blog_home:
+##    path: /index
+##    defaults:  { _controller: ZDBlogBundle:Article:index }
+#    path:      /{page}
+#    defaults:
+#        _controller: ZDBlogBundle:Article:index
+#        page:        1
         
 zd_blog_index:
     path:   /index
     defaults: { _controller: ZDBlogBundle:Article:index}
     
 zd_blog_view:
-    path: /article
+    path: /view
     defaults:  { _controller: ZDBlogBundle:Article:view}
     
 zd_blog_register:
