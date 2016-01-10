@@ -17,7 +17,8 @@ class DayType extends AbstractType
         $builder
             ->add('titleH2',    'text')
             ->add('content','ckeditor', array(
-                'label' => 'Contenu',
+                'label'             => 'Contenu',
+                'config_name'       => 'Ivory_config'
             ))
             ->add('images', 'collection', array(
                 'type'         => new ImageType(),

@@ -4,25 +4,36 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/editHome.html.twig</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/HomeEdit.php</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/view.html.twig</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/viewDay.html.twig</file>
-            <file>file:/C:/wamp/www/Blog-Sport/app/config/config.yml</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/Home.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/index.html.twig</file>
-            <file>file:/C:/wamp/www/Blog-Sport/composer.json</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp/www/Blog-Sport/app/AppKernel.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Form/HomeType.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Form/HomeEditType.php</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/addHome.html.twig</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/viewHome.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/login.html.twig</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/form.html.twig</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/deleteHome.html.twig</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Form/DayType.php</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/leftBlock.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/layoutIndex.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/block.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Controller/ArticleController.php</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Form/ImageType.php</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/config/services.yml</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/HomeEdit.php</file>
+            <file>file:/C:/wamp/www/Blog-Sport/app/config/config.yml</file>
+            <file>file:/C:/wamp/www/Blog-Sport/composer.json</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/Article/rightBlock.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/app/Resources/views/layout.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/addHome.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/views/layout.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/viewHome.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Resources/views/Admin/deleteHome.html.twig</file>
+            <file>file:/C:/wamp/www/Blog-Sport/app/config/routing.yml</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/Image.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/HomeRepository.php</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Controller/ArticleController.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Entity/Day.php</file>
-            <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Form/ImageType.php</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/BlogBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp/www/Blog-Sport/src/ZD/AdminBundle/Controller/AdminController.php</file>
         </group>
