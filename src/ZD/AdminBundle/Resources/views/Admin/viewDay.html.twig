@@ -29,8 +29,8 @@ Jour
                                             <td>{{ day.content }}</td>
                                             <td></td>
 
-                                            <td><a href="" id="edit" class="btn btn-success">edit</a>
-                                                <a href="" id="delete" class="btn btn-success">delete</a></td>
+                                            <td><a href="{{ path('zd_admin_editDay', {'id': day.id}) }}" id="edit" class="btn btn-success">edit</a>
+                                                <a href="{{ path('zd_admin_deleteDay', {'id': day.id}) }}" id="delete" class="btn btn-success">delete</a></td>
 
                                         </tr>
                                         {% endfor %}

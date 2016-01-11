@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new ZD\UserBundle\ZDUserBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new ZD\CKEditorBundle\ZDCKEditorBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

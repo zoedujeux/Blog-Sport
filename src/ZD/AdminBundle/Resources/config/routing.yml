@@ -15,6 +15,14 @@ zd_admin_addDay:
     path:     /addDay
     defaults: { _controller: ZDAdminBundle:Admin:addDay}
     
+zd_admin_editDay:
+    path:   /editDay/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:editDay}
+    
+zd_admin_deleteDay:
+    path:   /deleteDay/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:deleteDay}
+    
 zd_admin_viewHome:
     path:   /viewHome
     defaults: { _controller: ZDAdminBundle:Admin:viewHome}

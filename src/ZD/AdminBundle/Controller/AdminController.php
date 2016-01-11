@@ -10,6 +10,8 @@ use ZD\AdminBundle\Entity\Home;
 use ZD\AdminBundle\Form\HomeType;
 use ZD\AdminBundle\Entity\HomeEdit;
 use ZD\AdminBundle\Form\HomeEditType;
+use ZD\AdminBundle\Entity\DayEdit;
+use ZD\AdminBundle\Form\DayEditType;
 
 class AdminController extends Controller
 {
@@ -184,5 +186,80 @@ class AdminController extends Controller
         'day' => $day
       ));
         
+    }
+    
+    
+    
+     //**********************************************************
+    //****EDIT*************************************************
+    //**********************************************************
+    
+    public function editDayAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $day = $em->getRepository('ZDAdminBundle:Day')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($day == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+        $form = $this->createForm(new DayEditType(), $day);
+
+        if ($form->handleRequest($request)->isValid()) {
+          // Inutile de persister ici, Doctrine connait déjà notre annonce
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+
+          return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId())));
+        }
+
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+
+      return $this->render('ZDAdminBundle:Admin:editDay.html.twig', array(
+        'form'   => $form->createView(),
+        'day' => $day
+      ));
+    }
+    
+    
+    //**********************************************************
+    //****DELETE*************************************************
+    //**********************************************************
+    public function deleteDayAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $day = $em->getRepository('ZDAdminBundle:Day')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($day == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      
+        // On crée un formulaire vide, qui ne contiendra que le champ CSRF
+        // Cela permet de protéger la suppression d'annonce contre cette faille
+        $form = $this->createFormBuilder()->getForm();
+
+        if ($form->handleRequest($request)->isValid()) {
+          $em->remove($day);
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
+
+          return $this->redirect($this->generateUrl('zd_admin_viewDay'));
+        }
+
+      // Si la requête est en GET, on affiche une page de confirmation avant de delete
+      return $this->render('ZDAdminBundle:Admin:deleteDay.html.twig', array(
+         'day' => $day,
+         'form'=> $form->createView()
+      ));
     }
 }
