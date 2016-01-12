@@ -28,7 +28,8 @@ class Home
     /**
      * @var string
      *
-     * @ORM\Column(name="TitleH1", type="string", length=255)
+     * @ORM\Column(name="TitleH1", type="string", length=255,nullable=true)
+     * 
      */
     private $titleH1;
 

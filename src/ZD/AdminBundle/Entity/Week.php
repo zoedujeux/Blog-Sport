@@ -28,12 +28,7 @@ class Week
      */
     private $title;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="subtitle", type="string", length=255)
-     */
-    private $subtitle;
+
 
 
     /**
@@ -70,28 +65,6 @@ class Week
         return $this->title;
     }
 
-    /**
-     * Set subtitle
-     *
-     * @param string $subtitle
-     *
-     * @return Week
-     */
-    public function setSubtitle($subtitle)
-    {
-        $this->subtitle = $subtitle;
 
-        return $this;
-    }
-
-    /**
-     * Get subtitle
-     *
-     * @return string
-     */
-    public function getSubtitle()
-    {
-        return $this->subtitle;
-    }
 }
 

@@ -45,6 +45,12 @@ class Day
      */
     private $images;
     
+     /**
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Week")
+    * @ORM\JoinColumn(name="week")
+    */
+   private $week;
+    
     public function __construct()
     {
       $this->images = new ArrayCollection();
@@ -201,4 +207,28 @@ class Day
 //    {
 //        return $this->image;
 //    }
+
+    /**
+     * Set week
+     *
+     * @param \ZD\AdminBundle\Entity\Week $week
+     *
+     * @return Day
+     */
+    public function setWeek(\ZD\AdminBundle\Entity\Week $week)
+    {
+        $this->week = $week;
+
+        return $this;
+    }
+
+    /**
+     * Get week
+     *
+     * @return \ZD\AdminBundle\Entity\Week
+     */
+    public function getWeek()
+    {
+        return $this->week;
+    }
 }

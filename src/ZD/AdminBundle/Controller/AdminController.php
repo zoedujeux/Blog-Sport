@@ -148,7 +148,7 @@ class AdminController extends Controller
     
     public function viewDayAction()
     {
-
+        
          $listDay = $this->getDoctrine()
             ->getManager()
             ->getRepository('ZDAdminBundle:Day')

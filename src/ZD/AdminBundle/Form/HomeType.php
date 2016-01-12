@@ -15,7 +15,7 @@ class HomeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titleH1',    'text')
+            ->add('titleH1', 'text', array('required' => false))
             ->add('content',    'textarea')
             ->add('titleH2',    'text')
             ->add('save',   'submit')

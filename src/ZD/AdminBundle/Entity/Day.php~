@@ -2,6 +2,7 @@
 
 namespace ZD\AdminBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ZD\AdminBundle\Entity\DayRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Day
 {
@@ -28,25 +30,76 @@ class Day
      */
     private $titleH2;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="titleH3", type="string", length=255)
-     */
-    private $titleH3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
     
     /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Image", cascade={"persist"})
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Image", mappedBy="day", cascade={"persist"})
+     */
+    private $images;
+    
+     /**
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Week")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $image;
+   private $week;
+    
+    public function __construct()
+    {
+      $this->images = new ArrayCollection();
+    }   
+    
+    
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+    
+    
+    public function addImage(Image $image)
+    {
+      
+      $this->images[] = $image;
+
+      return $this;
+    }
+
+    public function removeImage(Image $image)
+    {
+      
+      $this->images->removeElement($image);
+    }
+
+    
+    public function getImages()
+    {
+      return $this->images;
+    }
+    
+      public function setImage(Image $image = null)
+    {
+      $this->image = $image;
+      return $this;
+    }
 
 
     /**
@@ -83,52 +136,75 @@ class Day
         return $this->titleH2;
     }
 
-    /**
-     * Set titleH3
-     *
-     * @param string $titleH3
-     *
-     * @return Day
-     */
-    public function setTitleH3($titleH3)
-    {
-        $this->titleH3 = $titleH3;
-
-        return $this;
-    }
-
-    /**
-     * Get titleH3
-     *
-     * @return string
-     */
-    public function getTitleH3()
-    {
-        return $this->titleH3;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Day
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+//    /**
+//     * Set H3
+//     *
+//     * @param string $H3
+//     *
+//     * @return Day
+//     */
+//    public function setH3($H3)
+//    {
+//        $this->H3 = $H3;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get H3
+//     *
+//     * @return string
+//     */
+//    public function getH3()
+//    {
+//        return $this->H3;
+//    }
+//
+//    /**
+//     * Set content
+//     *
+//     * @param string $content
+//     *
+//     * @return Day
+//     */
+//    public function setContent($content)
+//    {
+//        $this->content = $content;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get content
+//     *
+//     * @return string
+//     */
+//    public function getContent()
+//    {
+//        return $this->content;
+//    }
+//
+//    /**
+//     * Set image
+//     *
+//     * @param \ZD\AdminBundle\Entity\Image $image
+//     *
+//     * @return Day
+//     */
+//    public function setImage(\ZD\AdminBundle\Entity\Image $image)
+//    {
+//        $this->image = $image;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get image
+//     *
+//     * @return \ZD\AdminBundle\Entity\Image
+//     */
+//    public function getImage()
+//    {
+//        return $this->image;
+//    }
 }
-
