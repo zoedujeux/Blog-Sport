@@ -1,0 +1,20 @@
+{% extends "ZDAdminBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier 
+{% endblock %}
+
+{% block content %}
+
+
+  {{ include("ZDAdminBundle:Admin:form.html.twig") }}
+
+
+  <p>
+    <a href="{{ path('zd_admin_viewDay', {'id': day.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour 
+    </a>
+  </p>
+
+{% endblock %}

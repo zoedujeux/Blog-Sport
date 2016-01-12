@@ -34,7 +34,7 @@ class Day
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
     

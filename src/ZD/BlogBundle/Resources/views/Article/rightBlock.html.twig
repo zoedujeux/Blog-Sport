@@ -1,4 +1,5 @@
  <!-- Main right-->
+ <div class="pair">
 		<div id="main">
 			<div class="container">
 				<div class="row">
@@ -7,25 +8,11 @@
 					<div id="content" class="8u skel-cell-important">
 						<section>
 							<header>
-								<h2></h2>
+								<h2>{{ article.titleH2}}</h2>
 								
 							</header>
 
-                                                           <h3>  </h3>
-                                                           
-                                                           <h3> </h3>
-                                                        
-                                                                <p>  </p>
-							
-                                                        
-                                                           <h3> </h3>
-                                                        
-                                                               <p> </p>
-                                                        
-                                                       
-                                                           <h3></h3>
-                                                        
-                                                               <p> </p>
+                                                          {{ article.content|raw}}
 						</section>
 					</div>
 
@@ -33,7 +20,7 @@
 					<div id="sidebar" class="4u">
 						<section>
 							<header>
-								<h2></h2>
+								<h2>Exercices</h2>
 							</header>
 							<div class="row">
 								<section class="6u">
@@ -58,6 +45,6 @@
 			</div>
 		</div>
 	<!-- /Main -->
-        
+ </div>
         
            

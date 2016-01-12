@@ -81,9 +81,9 @@ swiftmailer:
 
 
 ivory_ck_editor:
-#    default_config:                     Ivoryconfig    # Utiliser par defaut la configuration my_custom_config
+    default_config:                     Ivory_config    # Utiliser par defaut la configuration my_custom_config
     configs:
-        Ivoryconfig:
+        Ivory_config:
             language:                   %locale%
             toolbar:                    standard            # Charger la toolbar tollbar_1 (voir plus bas)
             stylesSet:                  my_styles           # Chargement des styles personnalisables my_styles (voir plus bas)
@@ -92,10 +92,10 @@ ivory_ck_editor:
             # Utiliser les styles css suivants dans le contenu de l'éditeur. Permet de voir le rendu en temps réeem
             contentsCss:                ['bundles/app/css/style.css']
         
-        bbcode:
-            toolbar:                    [[ 'Bold', 'Italic', 'Underline', 'BulletedList' ]]
-            uiColor:                    "#FCFCFC"
-            extraPlugins:               'bbcode'
+#        bbcode:
+#            toolbar:                    [[ 'Bold', 'Italic', 'Underline', 'BulletedList' ]]
+#            uiColor:                    "#FCFCFC"
+#            extraPlugins:               'bbcode'
     
     styles:         # Configuration des styles personnalisables
         my_styles:

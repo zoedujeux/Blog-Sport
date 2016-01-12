@@ -1,12 +1,13 @@
-<div id="main">
+<div class="impair">
+    <div id="main">
         <div class="container">
                 <div class="row">
 
                         <!-- Sidebar -->
                         <div id="sidebar" class="4u">
                                 <section>
-                                        <header>
-                                                
+                                        <header>           
+                                          <h2>Exercices</h2> 
                                         </header>
                                         <div class="row">
                                                 <section class="6u">
@@ -33,32 +34,17 @@
                         <div id="content" class="8u skel-cell-important">
                                 <section>
                                         <header>
-                                                {% for article in articles %}
-                                                    <h2>{{ article.content}}</h2>
-                                                {% endfor %}
+                                                
+                                                    <h2>{{ article.titleH2}}</h2>
+                                                
                                                 <!--<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>-->
                                         </header>
-                                            <p></p>
-
-                                           <h3>  </h3>
-
-                                           <h3>  </h3>
-
-                                            <p></p>
-
-
-                                           <h3></h3>
-
-                                            <p></p>
-
-
-                                           <h3></h3>
-
-                                            <p></p>
+                                           {{ article.content|raw}}
                                 </section>
                         </div>
 
                 </div>
         </div>         
+</div>
 </div>
 
