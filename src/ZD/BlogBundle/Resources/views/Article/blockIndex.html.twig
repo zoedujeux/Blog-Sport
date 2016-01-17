@@ -1,6 +1,12 @@
- <section class="4u">
+
+   {% for article in articles %}
+
+
+<section class="4u">
         <span class="pennant"><span class="fa fa-briefcase"></span></span>
-        <h3>Semaine 1</h3>
-        <p>Jour 1 --> 7. Nous allons voir les exercices basics comme la plache, les squats, les pompes etc</p>
+        <h3>{{ article.titleH2}}</h3>
+        <p>{{ article.content}}</p>
         <a href="semaine1.html" class="button button-style1">Read More</a>
 </section>
+
+    {% endfor %}

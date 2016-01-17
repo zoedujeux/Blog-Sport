@@ -13,6 +13,7 @@ use ZD\AdminBundle\Form\HomeEditType;
 use ZD\AdminBundle\Entity\DayEdit;
 use ZD\AdminBundle\Form\DayEditType;
 
+
 class AdminController extends Controller
 {
     public function indexAction()
@@ -139,37 +140,42 @@ class AdminController extends Controller
          'form'=> $form->createView()
       ));
     }
-    
-    public function weekAction()
-    {
-        return $this->render('ZDAdminBundle:Admin:week.html.twig');
-    }
-    
-    
+
+     
     public function viewDayAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $week = $em
+                ->getRepository('ZDAdminBundle:Week')
+                ->findAll();
         
          $listDay = $this->getDoctrine()
             ->getManager()
             ->getRepository('ZDAdminBundle:Day')
-            ->findAll()
+            ->findBy(array('week'=>$week))
           ;
 
         // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
         return $this->render('ZDAdminBundle:Admin:viewDay.html.twig', array(
-          'listDay'       => $listDay,
+            'week'          => $week,
+            'listDay'       => $listDay,
         ));
   
     }
     
     public function addDayAction(Request $request)
     {
-        
+        $week= new Week();
+        $week->setTitle('Semaine 1');
         $day = new Day();
+        
+        $day->setWeek($week);
         $form = $this->createForm(new DayType(), $day);
 
+        
         if ($form->handleRequest($request)->isValid()) {
         $em = $this->getDoctrine()->getManager();
+        $em->persist($week);
         $em->persist($day);
         $em->flush();
 
@@ -262,4 +268,27 @@ class AdminController extends Controller
          'form'=> $form->createView()
       ));
     }
+    
+    
+        
+//    public function viewWeekAction()
+//    {
+//        return $this->render('ZDAdminBundle:Admin:week.html.twig');
+//    }
+//    
+//     public function addWeekAction(Request $request)
+//    {
+//         
+//    }
+//    
+//    public function editWeekAction($id, Request $request)
+//    {
+//        
+//    }
+//    
+//     public function deleteWeekAction($id, Request $request)
+//    {
+//        
+//    }
+     
 }

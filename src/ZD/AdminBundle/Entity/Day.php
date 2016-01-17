@@ -46,7 +46,7 @@ class Day
     private $images;
     
      /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Week")
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Week", inversedBy="days")
     * @ORM\JoinColumn(name="week")
     */
    private $week;

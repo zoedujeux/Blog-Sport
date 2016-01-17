@@ -27,8 +27,37 @@ class Week
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Day", mappedBy="week")
+     */
+    private $days;
 
 
+    public function __construct()
+    {
+      $this->days = new ArrayCollection();
+    }
+
+    public function addDay(Day $day)
+    {
+      $this->days[] = $day;
+      
+      $day->setWeek($this);
+
+      return $this;
+    }
+
+    public function removeDay(Day $day)
+    {
+      $this->days->removeElement($day);
+    }
+
+    public function getDays()
+    {
+      return $this->days;
+    }
 
 
     /**

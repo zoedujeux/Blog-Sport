@@ -9,18 +9,18 @@
 
 
 {% block contentPage %}
-   
+   {% for article in articles %}
     <div id="featured">
 			<div class="container">
 				<header>
-					{% for article in articles %}
-                                            <h2>{{ article.titleH2|raw}}</h2>
-                                        {% endfor %}
+					
+                                            <h2>{{ article.titleH2}}</h2>
+                                       
 				</header>
                                 
-                                {% for article in articles %}
-                                    <p>{{ article.content|raw}}</p>
-                                   {% endfor %}
+                               
+                                    <p>{{ article.content}}</p>
+                             
 				<hr />
 				<div class="row">
 					
@@ -30,6 +30,6 @@
 				</div>
 			</div>
         </div>
-   
+    {% endfor %}
 {% endblock %}
  
