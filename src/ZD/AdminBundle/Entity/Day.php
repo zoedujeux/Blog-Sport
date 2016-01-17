@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Day
  *
  * @ORM\Table()
+ * @ORM\Entity
  * @ORM\Entity(repositoryClass="ZD\AdminBundle\Entity\DayRepository")
  * @ORM\HasLifecycleCallbacks
  */

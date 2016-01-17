@@ -26,7 +26,7 @@ security:
                 path:       fos_user_security_logout
                 target:     /platform
             remember_me:
-                key:        %secret% # %secret% est un paramètre de parameters.yml
+                key:        %secret% 
             # activate different ways to authenticate
 
             # http_basic: ~

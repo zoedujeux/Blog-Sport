@@ -12,6 +12,7 @@ use ZD\AdminBundle\Entity\HomeEdit;
 use ZD\AdminBundle\Form\HomeEditType;
 use ZD\AdminBundle\Entity\DayEdit;
 use ZD\AdminBundle\Form\DayEditType;
+use ZD\AdminBundle\Entity\Week;
 
 
 class AdminController extends Controller
@@ -167,6 +168,7 @@ class AdminController extends Controller
     {
         $week= new Week();
         $week->setTitle('Semaine 1');
+        
         $day = new Day();
         
         $day->setWeek($week);
@@ -189,7 +191,8 @@ class AdminController extends Controller
       // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
       return $this->render('ZDAdminBundle:Admin:addDay.html.twig', array(
         'form' => $form->createView(),
-        'day' => $day
+        'day' => $day,
+        'week'=> $week,
       ));
         
     }

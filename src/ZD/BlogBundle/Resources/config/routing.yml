@@ -14,13 +14,13 @@ zd_blog_view:
     path: /view
     defaults:  { _controller: ZDBlogBundle:Article:view}
     
-zd_blog_register:
-    path: /register
-    defaults:  { _controller: ZDBlogBundle:Article:register }
-    
-zd_blog_login:
-    path: /login
-    defaults:  { _controller: ZDBlogBundle:Article:login }
+#zd_blog_register:
+#    path: /register
+#    defaults:  { _controller: ZDBlogBundle:Article:register }
+#    
+#zd_blog_login:
+#    path: /login
+#    defaults:  { _controller: ZDBlogBundle:Article:login }
     
 zd_blog_add:
     path: /add

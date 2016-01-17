@@ -43,49 +43,7 @@ class ArticleController extends Controller
     
     
     
-    
-    public function registerAction (Request $request)
-    {
-  
-        $register = new FormRegister();
-
-        
-        $form = $this->get('form.factory')->createBuilder('form', $register)
-
-          ->add('name',      'text')
-          ->add('email',     'email')
-          ->add('password',   'password')
-          ->add('save',      'submit')
-          ->getForm()
-        ;
-
-        $form = handleRequest($request);
-        
-        if ($form->isValid()) {
-       
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($register);
-        $em->flush();
-
-        $request->getSession()->getFlashBag()->add('notice', 'Vous avez bien été enregistré.');
-
-       
-        return $this->redirect($this->generateUrl('zd_blog_register', array('id' => $register->getId())));
-      }
-
-      
-     
-      return $this->render('ZDBlogBundle:Article:register.html.twig', array(
-        'form' => $form->createView(),
-      ));
-
-    
-    }
-    
-     public function loginAction (Request $request)
-    {
-
-    }
+   
     
      public function addAction(Request $request)
     {
