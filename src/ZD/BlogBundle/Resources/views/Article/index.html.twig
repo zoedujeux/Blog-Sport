@@ -24,9 +24,19 @@
 				<hr />
 				<div class="row">
 					
-                                    {#   {{ include("ZDBlogBundle:Article:blockIndex.html.twig") }} #}
+                                    {#  {{ include("ZDBlogBundle:Article:blockIndex.html.twig") }} #}
 					
+                                     {% for articleWeek in articlesWeek %}
 
+
+                                        <section class="4u">
+                                                <span class="pennant"><span class="fa fa-briefcase"></span></span>
+                                                <h3>{{ articleWeek.title}}</h3>
+                                                <p>{{ articleWeek.preview}}</p>
+                                                <a href="semaine1.html" class="button button-style1">Read More</a>
+                                        </section>
+
+                                            {% endfor %}
 				</div>
 			</div>
         </div>

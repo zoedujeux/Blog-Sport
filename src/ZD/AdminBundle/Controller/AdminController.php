@@ -275,58 +275,6 @@ class AdminController extends Controller
     
     
         
-    public function viewWeekAction()
-    {
-       $listWeek = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ZDAdminBundle:Week')
-//            ->findBy(array('week'=>$week))
-            ->findAll()
-          ;
-
-        // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
-        return $this->render('ZDAdminBundle:Admin:viewWeek.html.twig', array(
-//            'week'          => $week,
-            'listWeek'       => $listWeek,
-        ));
-    }
     
-     public function addWeekAction(Request $request)
-    {
-          
-        $week = new Week();
-        $form = $this->createForm(new WeekType(), $week);
-
-        
-        if ($form->handleRequest($request)->isValid()) {
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($week);
-        $em->flush();
-
-        $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
-
-        return $this->redirect($this->generateUrl('zd_admin_viewWeek', array('id' => $week->getId())));
-      }
-
-      // À ce stade, le formulaire n'est pas valide car :
-      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
-      // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-      return $this->render('ZDAdminBundle:Admin:addWeek.html.twig', array(
-        'form' => $form->createView(),
-        'week'=> $week,
-      ));
-        
-         
-    }
-    
-    public function editWeekAction($id, Request $request)
-    {
-        
-    }
-    
-     public function deleteWeekAction($id, Request $request)
-    {
-        
-    }
      
 }

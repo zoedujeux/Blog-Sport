@@ -18,15 +18,21 @@ class ArticleController extends Controller
             ->getRepository('ZDAdminBundle:Home')
             ->findAll()
           ;
+         
+         $articlesWeek= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Week')
+            ->findAll()
+          ;
           return $this->render('ZDBlogBundle:Article:index.html.twig', array (
               "articles"    =>$articles,
+              "articlesWeek"    =>$articlesWeek,
              
           ));
 
-         
-          
-
     }
+    
+    
     
     public function viewAction()
     {

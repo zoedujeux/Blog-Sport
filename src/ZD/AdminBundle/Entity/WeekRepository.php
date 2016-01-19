@@ -24,4 +24,19 @@ class WeekRepository extends \Doctrine\ORM\EntityRepository
       // On retourne ces résultats
       return $results;
     }
+    
+    public function myFindOne($weekId)
+    {
+      $qb = $this->createQueryBuilder('w');
+
+      $qb
+        ->where('w.weekId = :weekId')
+        ->setParameter('weekId', $weekId)
+      ;
+
+      return $qb
+        ->getQuery()
+        ->getResult()
+      ;
+    }
 }

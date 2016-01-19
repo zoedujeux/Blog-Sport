@@ -17,6 +17,8 @@ class WeekType extends AbstractType
         $builder
             ->add('title')
             ->add('preview')
+            ->add('weekId')
+            ->add('save',   'submit')
         ;
     }
     

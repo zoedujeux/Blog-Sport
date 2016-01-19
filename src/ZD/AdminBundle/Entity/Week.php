@@ -50,7 +50,7 @@ class Week
 
     public function __construct()
     {
-      $this->days = new ArrayCollection();
+      $this->days = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function addDay(Day $day)

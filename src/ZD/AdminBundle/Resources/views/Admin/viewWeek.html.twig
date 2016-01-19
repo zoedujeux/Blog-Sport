@@ -4,7 +4,7 @@
 Semaine 
 {% endblock %}
 
-{% block content %}
+{#{% block content %}
  <div class="row">
                     <div class="col-lg-6">
                         <div class="table-responsive">
@@ -26,8 +26,8 @@ Semaine
                                             <td>{{ week.title }}</td> 
                                             <td>{{ week.preview }}</td>
 
-                                            <td><a href="{{ path('zd_admin_editWeek', {'id': week.id}) }}" id="edit" class="btn btn-success">edit</a>
-                                                <a href="{{ path('zd_admin_deleteWeek', {'id': week.id}) }}" id="delete" class="btn btn-success">delete</a></td>
+                                            <td><a href="{{ path('zd_week_editWeek', {'id': week.id}) }}" id="edit" class="btn btn-success">edit</a>
+                                                <a href="{{ path('zd_week_deleteWeek', {'id': week.id}) }}" id="delete" class="btn btn-success">delete</a></td>
 
                                         </tr>
                                         {% endfor %}
@@ -38,12 +38,12 @@ Semaine
                                 </tbody>
                             </table>
                                     
-                                    <a href="{{ path('zd_admin_addWeek') }}" id="create" class="btn btn-success">Ajouter la semaine</a>
+                                    <a href="{{ path('zd_week_addWeek') }}" id="create" class="btn btn-success">Ajouter la semaine</a>
                         </div>
                     </div>
      
-    {# {{ include("ZDAdminBundle:Admin:viewDay.html.twig") }} #}
+     {{ include("ZDAdminBundle:Admin:viewDay.html.twig") }} 
      
  </div>
-{% endblock %}
+{% endblock %}#}
 
