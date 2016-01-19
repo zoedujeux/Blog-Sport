@@ -5,5 +5,45 @@ Semaine
 {% endblock %}
 
 {% block content %}
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Résumé</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                        {% for week in listWeek %}
+                                        <tr>
+                                            <td>{{ week.id }}</td> 
+                                            <td>{{ week.title }}</td> 
+                                            <td>{{ week.preview }}</td>
+
+                                            <td><a href="{{ path('zd_admin_editWeek', {'id': week.id}) }}" id="edit" class="btn btn-success">edit</a>
+                                                <a href="{{ path('zd_admin_deleteWeek', {'id': week.id}) }}" id="delete" class="btn btn-success">delete</a></td>
+
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                        
+                                       
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('zd_admin_addWeek') }}" id="create" class="btn btn-success">Ajouter la semaine</a>
+                        </div>
+                    </div>
+     
+    {# {{ include("ZDAdminBundle:Admin:viewDay.html.twig") }} #}
+     
+ </div>
 {% endblock %}
 

@@ -41,7 +41,7 @@ class Week
      */
     private $preview;
     
-    /**
+    /*
      * @var integer
      * @ORM\Column(name="weekId", type="integer")
      */
@@ -137,9 +137,6 @@ class Week
     {
         return $this->weekId;
     }
-      public function setWeekId($weekId)
-    {
-        $this->weekId =$weekId;
-        return $this;
-    }
 }
+
+

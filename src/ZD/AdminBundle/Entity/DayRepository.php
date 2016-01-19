@@ -87,4 +87,24 @@ class DayRepository extends \Doctrine\ORM\EntityRepository
       ->getResult()
     ;
   }
+  
+  public function getDayWithWeek($limit)
+  {
+    $qb = $this->createQueryBuilder('w');
+
+    // On fait une jointure avec l'entité Advert avec pour alias « adv »
+    $qb
+      ->join('w.week', 'wee')
+      ->addSelect('wee')
+    ;
+
+    // Puis on ne retourne que $limit résultats
+    $qb->setMaxResults($limit);
+
+    // Enfin, on retourne le résultat
+    return $qb
+      ->getQuery()
+      ->getResult()
+      ;
+  }
 }

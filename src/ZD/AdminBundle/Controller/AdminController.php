@@ -145,20 +145,21 @@ class AdminController extends Controller
      
     public function viewDayAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $week = $em
-                ->getRepository('ZDAdminBundle:Week')
-                ->findAll();
+//        $em = $this->getDoctrine()->getManager();
+//        $week = $em
+//                ->getRepository('ZDAdminBundle:Week')
+//                ->findAll();
         
          $listDay = $this->getDoctrine()
             ->getManager()
             ->getRepository('ZDAdminBundle:Day')
-            ->findBy(array('week'=>$week))
+//            ->findBy(array('week'=>$week))
+            ->findAll()
           ;
 
         // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
         return $this->render('ZDAdminBundle:Admin:viewDay.html.twig', array(
-            'week'          => $week,
+//            'week'          => $week,
             'listDay'       => $listDay,
         ));
   
@@ -166,18 +167,18 @@ class AdminController extends Controller
     
     public function addDayAction(Request $request)
     {
-        $week= new Week();
-        $week->setTitle('Semaine 1');
+//        $week= new Week();
+//        $form = $this->createForm(new WeekType(), $week);
+ 
         
         $day = new Day();
-        
-        $day->setWeek($week);
         $form = $this->createForm(new DayType(), $day);
 
+//        $day->setWeek($week);
         
         if ($form->handleRequest($request)->isValid()) {
         $em = $this->getDoctrine()->getManager();
-        $em->persist($week);
+//        $em->persist($week);
         $em->persist($day);
         $em->flush();
 
@@ -192,7 +193,7 @@ class AdminController extends Controller
       return $this->render('ZDAdminBundle:Admin:addDay.html.twig', array(
         'form' => $form->createView(),
         'day' => $day,
-        'week'=> $week,
+//        'week'=> $week,
       ));
         
     }
@@ -274,24 +275,58 @@ class AdminController extends Controller
     
     
         
-//    public function viewWeekAction()
-//    {
-//        return $this->render('ZDAdminBundle:Admin:week.html.twig');
-//    }
-//    
-//     public function addWeekAction(Request $request)
-//    {
-//         
-//    }
-//    
-//    public function editWeekAction($id, Request $request)
-//    {
-//        
-//    }
-//    
-//     public function deleteWeekAction($id, Request $request)
-//    {
-//        
-//    }
+    public function viewWeekAction()
+    {
+       $listWeek = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Week')
+//            ->findBy(array('week'=>$week))
+            ->findAll()
+          ;
+
+        // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
+        return $this->render('ZDAdminBundle:Admin:viewWeek.html.twig', array(
+//            'week'          => $week,
+            'listWeek'       => $listWeek,
+        ));
+    }
+    
+     public function addWeekAction(Request $request)
+    {
+          
+        $week = new Week();
+        $form = $this->createForm(new WeekType(), $week);
+
+        
+        if ($form->handleRequest($request)->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($week);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
+
+        return $this->redirect($this->generateUrl('zd_admin_viewWeek', array('id' => $week->getId())));
+      }
+
+      // À ce stade, le formulaire n'est pas valide car :
+      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+      // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+      return $this->render('ZDAdminBundle:Admin:addWeek.html.twig', array(
+        'form' => $form->createView(),
+        'week'=> $week,
+      ));
+        
+         
+    }
+    
+    public function editWeekAction($id, Request $request)
+    {
+        
+    }
+    
+     public function deleteWeekAction($id, Request $request)
+    {
+        
+    }
      
 }

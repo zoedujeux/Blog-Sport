@@ -39,18 +39,18 @@ zd_admin_deleteHome:
     path:   /deleteHome/{id}
     defaults: { _controller: ZDAdminBundle:Admin:deleteHome}
     
-#zd_admin_viewWeek:
-#    path:   /viewWeek
-#    defaults: { _controller: ZDAdminBundle:Admin:viewWeek}
-#    
-#zd_admin_addWeek:
-#    path:   /addWeek
-#    defaults: { _controller: ZDAdminBundle:Admin:addWeek}
-#    
-#zd_admin_editWeek:
-#    path:   /editWeek/{id}
-#    defaults: { _controller: ZDAdminBundle:Admin:editWeek}
-#    
-#zd_admin_deleteWeek:
-#    path:   /deleteWeek/{id}
-#    defaults: { _controller: ZDAdminBundle:Admin:deleteWeek}
+zd_admin_viewWeek:
+    path:   /viewWeek
+    defaults: { _controller: ZDAdminBundle:Admin:viewWeek}
+    
+zd_admin_addWeek:
+    path:   /addWeek
+    defaults: { _controller: ZDAdminBundle:Admin:addWeek}
+    
+zd_admin_editWeek:
+    path:   /editWeek/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:editWeek}
+    
+zd_admin_deleteWeek:
+    path:   /deleteWeek/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:deleteWeek}
