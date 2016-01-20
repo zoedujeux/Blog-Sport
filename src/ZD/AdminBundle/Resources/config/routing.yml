@@ -8,19 +8,19 @@ zd_admin_view:
     
     
 zd_admin_viewDay:
-    path:   /viewDay
+    path:   /viewDay/{weekId}
     defaults: { _controller: ZDAdminBundle:Admin:viewDay}
     
 zd_admin_addDay:
-    path:     /addDay
+    path:     /addDay/{weekId}
     defaults: { _controller: ZDAdminBundle:Admin:addDay}
     
 zd_admin_editDay:
-    path:   /editDay/{id}
+    path:   /editDay/{id}/{weekId}
     defaults: { _controller: ZDAdminBundle:Admin:editDay}
     
 zd_admin_deleteDay:
-    path:   /deleteDay/{id}
+    path:   /deleteDay/{id}/{weekId}
     defaults: { _controller: ZDAdminBundle:Admin:deleteDay}
     
 zd_admin_viewHome:

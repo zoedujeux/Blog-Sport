@@ -143,35 +143,44 @@ class AdminController extends Controller
     }
 
      
-    public function viewDayAction()
+    public function viewDayAction($weekId)
     {
-//        $em = $this->getDoctrine()->getManager();
-//        $week = $em
-//                ->getRepository('ZDAdminBundle:Week')
-//                ->findAll();
+
+         
+         $week  = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Week')
+            ->findOneBy(['weekId'=>$weekId])
+          ;
         
          $listDay = $this->getDoctrine()
             ->getManager()
             ->getRepository('ZDAdminBundle:Day')
-//            ->findBy(array('week'=>$week))
-            ->findAll()
+            ->findBy(['week'=>$week])
           ;
 
         // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
         return $this->render('ZDAdminBundle:Admin:viewDay.html.twig', array(
-//            'week'          => $week,
+
             'listDay'       => $listDay,
+            'week'          => $week,
         ));
   
     }
     
-    public function addDayAction(Request $request)
+    public function addDayAction($weekId, Request $request)
     {
 //        $week= new Week();
 //        $form = $this->createForm(new WeekType(), $week);
  
+        $week  = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Week')
+            ->findOneBy(['weekId'=>$weekId])
+          ;
         
         $day = new Day();
+        $day->setWeek($week);
         $form = $this->createForm(new DayType(), $day);
 
 //        $day->setWeek($week);
@@ -193,7 +202,7 @@ class AdminController extends Controller
       return $this->render('ZDAdminBundle:Admin:addDay.html.twig', array(
         'form' => $form->createView(),
         'day' => $day,
-//        'week'=> $week,
+        'week'=> $week,
       ));
         
     }
@@ -204,13 +213,16 @@ class AdminController extends Controller
     //****EDIT*************************************************
     //**********************************************************
     
-    public function editDayAction($id, Request $request)
+    public function editDayAction($id, $weekId, Request $request)
     {
       // On récupère l'EntityManager
       $em = $this->getDoctrine()->getManager();
 
       // On récupère l'entité correspondant à l'id $id
+      $week  = $em->getRepository('ZDAdminBundle:Week')->findOneBy(['weekId'=>$weekId]);
       $day = $em->getRepository('ZDAdminBundle:Day')->find($id);
+
+      
 
       // Si l'annonce n'existe pas, on affiche une erreur 404
       if ($day == null) {
@@ -232,7 +244,9 @@ class AdminController extends Controller
 
       return $this->render('ZDAdminBundle:Admin:editDay.html.twig', array(
         'form'   => $form->createView(),
-        'day' => $day
+        'day' => $day,
+        'week' => $week,
+          
       ));
     }
     
@@ -240,13 +254,15 @@ class AdminController extends Controller
     //**********************************************************
     //****DELETE*************************************************
     //**********************************************************
-    public function deleteDayAction($id, Request $request)
+    public function deleteDayAction($id, $weekId, Request $request)
     {
       // On récupère l'EntityManager
       $em = $this->getDoctrine()->getManager();
 
       // On récupère l'entité correspondant à l'id $id
+      $week  = $em->getRepository('ZDAdminBundle:Week')->findOneBy(['weekId'=>$weekId]);
       $day = $em->getRepository('ZDAdminBundle:Day')->find($id);
+      
 
       // Si l'annonce n'existe pas, on affiche une erreur 404
       if ($day == null) {
@@ -268,7 +284,8 @@ class AdminController extends Controller
 
       // Si la requête est en GET, on affiche une page de confirmation avant de delete
       return $this->render('ZDAdminBundle:Admin:deleteDay.html.twig', array(
-         'day' => $day,
+         'week' => $week,
+          'day' => $day,
          'form'=> $form->createView()
       ));
     }

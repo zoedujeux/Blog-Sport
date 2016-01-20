@@ -11,8 +11,8 @@
   </p>
 
   {# On met l'id de l'annonce dans la route de l'action du formulaire #}
-  <form action="{{ path('zd_admin_deleteDay', {'id': day.id}) }}" method="post">
-    <a href="{{ path('zd_admin_viewDay', {'id': day.id}) }}" class="btn btn-default">
+  <form action="{{ path('zd_admin_deleteDay', {'id': day.id,'weekId': week.weekId}) }}" method="post">
+    <a href="{{ path('zd_admin_viewDay', {'id': day.id,'weekId': week.weekId}) }}" class="btn btn-default">
       <i class="glyphicon glyphicon-chevron-left"></i>
       Retour 
     </a>
