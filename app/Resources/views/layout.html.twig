@@ -52,14 +52,14 @@
 
 					<ul>
 						<li class="active"><a href="{{ path('zd_blog_index') }}">Homepage</a></li>
-						<li><a href="{{ path('zd_blog_view') }}">Semaines</a>
+						<li><a href="{{ path('zd_blog_view', {weekId:1}) }}">Semaines</a>
                                                     <ul>
-                                                        <li><a href="semaine1.html">semaine 1</a></li>
-                                                        <li><a href="semaine2.html">semaine 2</a></li>
-                                                        <li><a href="semaine3.html">semaine 3</a></li>
-                                                        <li><a href="semaine4.html">semaine 4</a></li>
-                                                        <li><a href="semaine5.html">semaine 5</a></li>
-                                                        <li><a href="semaine6.html">semaine 6 </a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:1}) }}">semaine 1</a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:2}) }}">semaine 2</a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:3}) }}">semaine 3</a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:4}) }}">semaine 4</a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:5}) }}">semaine 5</a></li>
+                                                        <li><a href="{{ path('zd_blog_view', {weekId:6}) }}">semaine 6 </a></li>
                                                         
                                                     </ul>
                                                 </li>

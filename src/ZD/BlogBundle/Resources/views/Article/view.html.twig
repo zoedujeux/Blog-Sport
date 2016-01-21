@@ -5,7 +5,7 @@
 {% block contentPage %}
     
     <!-- Main left-->
-        {% for article in articles %}
+        {% for listDay in listDays %}
             
           {% if loop.index is even %}
             {{ include("ZDBlogBundle:Article:rightBlock.html.twig") }}  

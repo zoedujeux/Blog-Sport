@@ -11,7 +11,7 @@ zd_blog_index:
     defaults: { _controller: ZDBlogBundle:Article:index}
     
 zd_blog_view:
-    path: /view
+    path: /view/{weekId}
     defaults:  { _controller: ZDBlogBundle:Article:view}
     
 #zd_blog_register:

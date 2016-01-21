@@ -34,17 +34,27 @@ class ArticleController extends Controller
     
     
     
-    public function viewAction()
+    public function viewAction($weekId)
     {
-         $articles= $this->getDoctrine()
+        
+         $week  = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Week')
+            ->findOneBy(['weekId'=>$weekId])
+          ;
+        
+         $listDays = $this->getDoctrine()
             ->getManager()
             ->getRepository('ZDAdminBundle:Day')
-            ->findAll()
+            ->findBy(['week'=>$week])
           ;
-          return $this->render('ZDBlogBundle:Article:view.html.twig', array (
-              "articles"    =>$articles,
-             
-          ));
+
+        // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
+        return $this->render('ZDBlogBundle:Article:view.html.twig', array(
+
+            'listDays'       => $listDays,
+            'week'          => $week,
+        ));
     }
     
     
