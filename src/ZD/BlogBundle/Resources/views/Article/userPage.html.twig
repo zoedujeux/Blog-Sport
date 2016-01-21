@@ -1,0 +1,166 @@
+{% extends "ZDBlogBundle::layout.html.twig" %}
+
+{% block h1 %}{% endblock %}
+
+{% block contentPage %}
+    
+	<!-- Featured -->
+		<div id="featured">
+			<div class="container">
+				<header>
+					<h2>Bienvenue parmis nous </h2>
+				</header>
+				<p>Ci dessous, comme tu peux le constater ce trouve un calendrier. 
+                                   Quand tu auras fini une série d'exercices tu peux aller dans ton calendrier personnelle, au jour correspondant et cocher cette case.
+                                   Comme ça même si tu rates un ou deux jours tu sauras toujours quel jour tu as fais quel exercice. Si tu oublies un jour je t'envoies un petit mail pour te le rappeler. 
+                                
+                                   <br/> HAVE FUN !</p>
+				<hr />
+                                
+                                
+                                <div id='wrap'>
+
+                                <div id='external-events'>
+                                        <h3>Faite glisser sur le calendrier</h3>
+                                        
+                                        <ul>
+						<li>Semaine 1
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 1</li>
+                                                        <li class='fc-event'>Jour 2</li>
+                                                        <li class='fc-event'>Jour 3</li>
+                                                        <li class='fc-event'>Jour 4</li>
+                                                        <li class='fc-event'>Jour 5</li>
+                                                    </ul>
+                                                        
+                                                </li>
+                                                
+						<li>Semaine 2
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 8 </li>
+                                                        <li class='fc-event'>Jour 9 </li>
+                                                        <li class='fc-event'>Jour 10 </li>
+                                                        <li class='fc-event'>Jour 11 </li>
+                                                        <li class='fc-event'>Jour 12 </li>    
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li>Semaine 3
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 15 </li>
+                                                        <li class='fc-event'>Jour 16 </li>
+                                                        <li class='fc-event'>Jour 17 </li>
+                                                        <li class='fc-event'>Jour 18 </li>
+                                                        <li class='fc-event'>Jour 19 </li>    
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li>Semaine 4
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 22 </li>
+                                                        <li class='fc-event'>Jour 23 </li>
+                                                        <li class='fc-event'>Jour 24 </li>
+                                                        <li class='fc-event'>Jour 25 </li>
+                                                        <li class='fc-event'>Jour 26 </li>    
+                                                    </ul>
+                                                </li>
+                                                
+                                                
+                                                <li>Semaine 5
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 29 </li>
+                                                        <li class='fc-event'>Jour 30 </li>
+                                                        <li class='fc-event'>Jour 31 </li>
+                                                        <li class='fc-event'>Jour 32 </li>
+                                                        <li class='fc-event'>Jour 33 </li>    
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li>Semaine 6
+                                                    <ul>
+                                                        <li class='fc-event'>Jour 36 </li>
+                                                        <li class='fc-event'>Jour 37 </li>
+                                                        <li class='fc-event'>Jour 38 </li>
+                                                        <li class='fc-event'>Jour 39 </li>
+                                                        <li class='fc-event'>Jour 40 </li>    
+                                                    </ul>
+                                                </li>
+						
+					</ul>
+                                      
+                                        <p>
+                                                <input type='checkbox' id='drop-remove' />
+                                                <label for='drop-remove'>remove after drop</label>
+                                        </p>
+                                </div>
+
+                                <div id='calendar'></div>
+
+                                <div style='clear:both'></div>
+
+                                </div>
+				
+			</div>
+		</div>
+
+        
+        
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+	$(document).ready(function() {
+
+
+		/* initialize the external events
+		-----------------------------------------------------------------*/
+
+		$('#external-events .fc-event').each(function() {
+
+			// store data so the calendar knows to render an event upon drop
+			$(this).data('event', {
+				title: $.trim($(this).text()), // use the element's text as the event title
+				stick: true // maintain when user navigates (see docs on the renderEvent method)
+			});
+
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
+                        
+                    
+
+		});
+
+
+		/* initialize the calendar
+		-----------------------------------------------------------------*/
+
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar
+			drop: function() {
+				// is the "remove after drop" checkbox checked?
+				if ($('#drop-remove').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+                                
+                                
+			}
+		});
+
+
+	});
+
+                     </script>
+{% endblock %}

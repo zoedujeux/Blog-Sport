@@ -30,6 +30,12 @@
 		<script src="{{asset('bundles/zdblog/js/skel.min.js')}}"></script>
 		<script src="{{asset('bundles/zdblog/js/skel-panels.min.js')}}"></script>
 		<script src="{{asset('bundles/zdblog/js/init.js')}}"></script>
+                <link href="{{asset('bundles/zdblog/css/fullcalendar.css')}}" rel='stylesheet' />
+                <link href="{{asset('bundles/zdblog/css/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
+                <script src="{{asset('bundles/zdblog/js/moment.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/jquery.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/jquery-ui.custom.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/fullcalendar.min.js')}}"></script>
 		<noscript>
 			
 		</noscript>
@@ -77,7 +83,7 @@
                                         <li> <a href="{{ path('fos_user_registration_register') }}" class="text-connexion">S'inscrire</a></li>
                                         <li> <a href="{{ path('fos_user_security_login') }}" class="text-connexion">Se connecter</a></li>
                                         <li>{% image '@ZDBlogBundle/Resources/public/images/connect.png' %}
-                                        <a href="persoPage.html"><img class="button-connexion" src="{{asset_url}}" alt="imgConnect" /></a>
+                                        <a href="{{ path('zd_blog_viewUser') }}" ><img class="button-connexion" src="{{asset_url}}" alt="imgConnect" /></a>
                                         {% endimage %}
                                         </li>
                                     </ul>
