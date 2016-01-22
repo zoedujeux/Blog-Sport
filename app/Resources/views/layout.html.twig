@@ -30,18 +30,31 @@
 		<script src="{{asset('bundles/zdblog/js/skel.min.js')}}"></script>
 		<script src="{{asset('bundles/zdblog/js/skel-panels.min.js')}}"></script>
 		<script src="{{asset('bundles/zdblog/js/init.js')}}"></script>
+                
+                
                 <link href="{{asset('bundles/zdblog/css/fullcalendar.css')}}" rel='stylesheet' />
                 <link href="{{asset('bundles/zdblog/css/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
                 <script src="{{asset('bundles/zdblog/js/moment.min.js')}}"></script>
                 <script src="{{asset('bundles/zdblog/js/jquery.min.js')}}"></script>
                 <script src="{{asset('bundles/zdblog/js/jquery-ui.custom.min.js')}}"></script>
                 <script src="{{asset('bundles/zdblog/js/fullcalendar.min.js')}}"></script>
+                
 		<noscript>
 			
 		</noscript>
                 <link rel="stylesheet" href="{{asset('bundles/zdblog/css/skel-noscript.css')}}" />
                 <link rel="stylesheet" href="{{asset('bundles/zdblog/css/style.css')}}" />
                 <link rel="stylesheet" href="{{asset('bundles/zdblog/css/style-desktop.css')}}" />
+                
+                {% block calendar %}
+                    
+                {% endblock %}
+                
+                {% block calendarScript %}
+                    
+                {% endblock %}
+                
+                
 	</head>
 	<body class="{%block bodyClass %}{%endblock%}">
             

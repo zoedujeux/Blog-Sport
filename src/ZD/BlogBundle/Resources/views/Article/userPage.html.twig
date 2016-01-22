@@ -1,5 +1,20 @@
 {% extends "ZDBlogBundle::layout.html.twig" %}
 
+{% block calendar %}
+<link href="{{asset('bundles/zdblog/css/fullcalendar.css')}}" rel='stylesheet' />
+                <link href="{{asset('bundles/zdblog/css/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
+                <script src="{{asset('bundles/zdblog/js/moment.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/jquery.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/jquery-ui.custom.min.js')}}"></script>
+                <script src="{{asset('bundles/zdblog/js/fullcalendar.min.js')}}"></script>
+                
+                
+{% endblock %}
+
+{% block calendarScript %}
+       
+{% endblock %}
+
 {% block h1 %}{% endblock %}
 
 {% block contentPage %}
@@ -109,7 +124,7 @@
 {% endblock %}
 
 {% block script %}
-<script>
+      
 
 	$(document).ready(function() {
 
@@ -162,5 +177,5 @@
 
 	});
 
-                     </script>
+              
 {% endblock %}
