@@ -40,9 +40,7 @@ class Day
     private $content;
     
     /**
-     * @var string
-     *
-     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Image", mappedBy="day", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Image", mappedBy="day")
      */
     private $images;
     
@@ -80,6 +78,8 @@ class Day
     {
       
       $this->images[] = $image;
+      
+      $image->setDay($this);
 
       return $this;
     }
@@ -96,11 +96,11 @@ class Day
       return $this->images;
     }
     
-      public function setImage(Image $image = null)
-    {
-      $this->image = $image;
-      return $this;
-    }
+//      public function setImage(Image $image = null)
+//    {
+//      $this->image = $image;
+//      return $this;
+//    }
 
 
     /**
@@ -137,54 +137,6 @@ class Day
         return $this->titleH2;
     }
 
-//    /**
-//     * Set H3
-//     *
-//     * @param string $H3
-//     *
-//     * @return Day
-//     */
-//    public function setH3($H3)
-//    {
-//        $this->H3 = $H3;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get H3
-//     *
-//     * @return string
-//     */
-//    public function getH3()
-//    {
-//        return $this->H3;
-//    }
-//
-//    /**
-//     * Set content
-//     *
-//     * @param string $content
-//     *
-//     * @return Day
-//     */
-//    public function setContent($content)
-//    {
-//        $this->content = $content;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get content
-//     *
-//     * @return string
-//     */
-//    public function getContent()
-//    {
-//        return $this->content;
-//    }
-//
 //    /**
 //     * Set image
 //     *

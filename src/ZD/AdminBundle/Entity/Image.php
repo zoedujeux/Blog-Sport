@@ -38,8 +38,8 @@ class Image
 
     
     /**
-    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="Images")
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="images")
+    * @ORM\JoinColumn(name="day")
     */
      private $day;
      
