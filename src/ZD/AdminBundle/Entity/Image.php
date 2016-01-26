@@ -39,9 +39,11 @@ class Image
     
     /**
     * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="images")
-    * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
+    * @ORM\JoinColumn(name="day")
     */
      private $day;
+     
+//     @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      
     private $file;
      

@@ -13,6 +13,10 @@ use ZD\AdminBundle\Form\HomeEditType;
 use ZD\AdminBundle\Entity\DayEdit;
 use ZD\AdminBundle\Form\DayEditType;
 use ZD\AdminBundle\Entity\Week;
+use ZD\AdminBundle\Entity\UserPage;
+use ZD\AdminBundle\Form\UserPageType;
+use ZD\AdminBundle\Entity\UserPageEdit;
+use ZD\AdminBundle\Form\UserPageEditType;
 
 
 class AdminController extends Controller
@@ -291,7 +295,126 @@ class AdminController extends Controller
     }
     
     
-        
+       
+    
+    public function viewUserPageAction()
+    {
+//        $em = $this->getDoctrine()->getManager();
+//        $home = $em->getRepository('ZDAdminBundle:Home')->findAll();
+
+         $listUserPage = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:UserPage')
+            ->findAll()
+          ;
+
+        // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
+        return $this->render('ZDAdminBundle:Admin:viewUserPage.html.twig', array(
+          'listUserPage'       => $listUserPage,
+        ));
+  
+    }
+    
+    //**********************************************************
+    //****ADD*************************************************
+    //**********************************************************
+    
+    public function addUserPageAction(Request $request)
+    {
+        $userPage = new UserPage();
+        $form = $this->createForm(new UserPageType(), $userPage);
+
+        if ($form->handleRequest($request)->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($userPage);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
+
+        return $this->redirect($this->generateUrl('zd_admin_viewUserPage', array('id' => $userPage->getId())));
+      }
+
+      // À ce stade, le formulaire n'est pas valide car :
+      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+      // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+      return $this->render('ZDAdminBundle:Admin:addUserPage.html.twig', array(
+        'form' => $form->createView(),
+        'userPage' => $userPage,
+      ));
+    }
+    
+    //**********************************************************
+    //****EDIT*************************************************
+    //**********************************************************
+    
+    public function editUserPageAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $home = $em->getRepository('ZDAdminBundle:UserPage')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($userPage == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+        $form = $this->createForm(new UserPageEditType(), $userPage);
+
+        if ($form->handleRequest($request)->isValid()) {
+          // Inutile de persister ici, Doctrine connait déjà notre annonce
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+
+          return $this->redirect($this->generateUrl('zd_admin_viewUserPage', array('id' => $userPage->getId())));
+        }
+
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+
+      return $this->render('ZDAdminBundle:Admin:editUserPage.html.twig', array(
+        'form'   => $form->createView(),
+        'userPage' => $userPage,
+      ));
+    }
+    
+    
+    //**********************************************************
+    //****DELETE*************************************************
+    //**********************************************************
+    public function deleteUserPageAction($id, Request $request)
+    {
+      // On récupère l'EntityManager
+      $em = $this->getDoctrine()->getManager();
+
+      // On récupère l'entité correspondant à l'id $id
+      $userPage = $em->getRepository('ZDAdminBundle:UserPage')->find($id);
+
+      // Si l'annonce n'existe pas, on affiche une erreur 404
+      if ($userPage == null) {
+        throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      }
+      
+        // On crée un formulaire vide, qui ne contiendra que le champ CSRF
+        // Cela permet de protéger la suppression d'annonce contre cette faille
+        $form = $this->createFormBuilder()->getForm();
+
+        if ($form->handleRequest($request)->isValid()) {
+          $em->remove($userPage);
+          $em->flush();
+
+          $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
+
+          return $this->redirect($this->generateUrl('zd_admin_viewUserPage'));
+        }
+
+      // Si la requête est en GET, on affiche une page de confirmation avant de delete
+      return $this->render('ZDAdminBundle:Admin:deleteUserPage.html.twig', array(
+         'userPage' => $userPage,
+         'form'=> $form->createView()
+      ));
+    }
     
      
 }

@@ -22,23 +22,20 @@
 	<!-- Featured -->
 		<div id="featured">
 			<div class="container">
+                             {% for article in articles %}
 				<header>
-                                    
+                                    <h2> {{ article.titleH2}}</h2><br/>
                                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                         <h2>Bienvenue {{ app.user.username }} !</h2> <br/>
+                                        <h2> {{ app.user.username }} ! </h2><br/>
                                      
                                         <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                                       
                                         {% endif %}
 					
 				</header>
-				<p>Ci dessous, comme tu peux le constater ce trouve un calendrier. 
-                                   Quand tu auras fini une série d'exercices tu peux aller dans ton calendrier personnelle, au jour correspondant et cocher cette case.
-                                   Comme ça même si tu rates un ou deux jours tu sauras toujours quel jour tu as fais quel exercice. Si tu oublies un jour je t'envoies un petit mail pour te le rappeler. 
-                                
-                                   <br/> HAVE FUN !</p>
+				<p>{{ article.content}}</p>
 				<hr />
-                                
+                                {% endfor %}
                                 
                                 <div id='wrap'>
 

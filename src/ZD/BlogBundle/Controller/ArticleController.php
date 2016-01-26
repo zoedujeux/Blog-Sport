@@ -65,15 +65,20 @@ class ArticleController extends Controller
     }
     
 
-   
-    
-    
-    
-   
-    
-     public function viewUserAction()
+     public function viewUserPageAction()
      {
-         return $this->render('ZDBlogBundle:Article:userPage.html.twig');
+          
+         $articles= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:UserPage')
+            ->findAll()
+          ;
+         
+          return $this->render('ZDBlogBundle:Article:userPage.html.twig', array (
+              "articles"    =>$articles,
+
+             
+          ));
      }
      
 }

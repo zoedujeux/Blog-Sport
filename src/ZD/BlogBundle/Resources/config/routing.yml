@@ -14,9 +14,9 @@ zd_blog_view:
     path: /view/{weekId}
     defaults:  { _controller: ZDBlogBundle:Article:view}
     
-zd_blog_viewUser:
-    path: /viewUser
-    defaults:  { _controller: ZDBlogBundle:Article:viewUser}
+zd_blog_viewUserPage:
+    path: /viewUserPage
+    defaults:  { _controller: ZDBlogBundle:Article:viewUserPage}
     
 #zd_blog_register:
 #    path: /register

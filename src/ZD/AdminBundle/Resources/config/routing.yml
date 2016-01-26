@@ -45,3 +45,18 @@ zd_week_viewWeek:
     defaults: { _controller: ZDAdminBundle:Week:viewWeek}
     
 
+zd_admin_viewUserPage:
+    path:   /userPage
+    defaults: { _controller: ZDAdminBundle:Admin:viewUserPage}
+    
+zd_admin_addUserPage:
+    path:   /addUserPage
+    defaults: { _controller: ZDAdminBundle:Admin:addUserPage}
+    
+zd_admin_editUserPage:
+    path:   /editUserPage/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:editUserPage}
+    
+zd_admin_deleteUserPage:
+    path:   /deleteUserPage/{id}
+    defaults: { _controller: ZDAdminBundle:Admin:deleteUserPage}
