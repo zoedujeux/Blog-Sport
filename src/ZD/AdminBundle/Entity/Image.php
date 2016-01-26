@@ -39,7 +39,7 @@ class Image
     
     /**
     * @ORM\ManyToOne(targetEntity="ZD\AdminBundle\Entity\Day", inversedBy="images")
-    * @ORM\JoinColumn(name="day")
+    * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
     */
      private $day;
      
@@ -229,9 +229,14 @@ class Image
       return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
     
+      public function getWebPath()
+    {
+      return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
+    }
+    
   
-//    public function __toString() 
-//    {
-//        return $this->getUrl();
-//    }
+    public function __toString() 
+    {
+        return $this->getUrl();
+    }
 }

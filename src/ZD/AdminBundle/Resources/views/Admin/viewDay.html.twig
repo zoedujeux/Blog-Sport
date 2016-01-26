@@ -30,7 +30,12 @@ Semaine
                                             <td>{{ day.id }}</td> 
                                             <td>{{ day.titleH2 }}</td> 
                                             <td>{{ day.content }}</td>
-                                            <td></td>
+                                            <td>{% if not day.images.empty %}
+                                                  {% for image in day.images %}
+                                                    {{ image.file }}{% if not loop.last %}, {% endif %}
+                                                  {% endfor %}
+                                            
+                                              {% endif %}</td>
 
                                             <td><a href="{{ path('zd_admin_editDay', {'id': day.id,'weekId': week.weekId} ) }}" id="edit" class="btn btn-success">edit</a>
                                                 <a href="{{ path('zd_admin_deleteDay', {'id': day.id,'weekId': week.weekId} ) }}" id="delete" class="btn btn-success">delete</a></td>

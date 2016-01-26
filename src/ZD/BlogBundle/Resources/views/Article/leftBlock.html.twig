@@ -12,7 +12,11 @@
                                         <div class="row">
                                                 <section class="6u">
                                                         <ul class="default">
-                                                                <li><img src="" alt=""></li>
+                                                                <li>  
+                                                                      {#{% if listDay.images is not null %}
+                                                                        <img src="{{ asset(listDay.images.webPath) }}" alt="{{ listDay.images.alt }}">
+                                                                      {% endif %}#}
+                                                                </li>
                                                         </ul>
 
                                                         <ul class="default">

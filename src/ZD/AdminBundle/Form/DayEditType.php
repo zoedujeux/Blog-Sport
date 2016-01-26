@@ -16,6 +16,6 @@ class DayEditType extends AbstractType
 
     public function getName()
     {
-        return 'zd_adminbundle_dayedit';
+        return 'zd_adminbundle_day_edit';
     }
 }

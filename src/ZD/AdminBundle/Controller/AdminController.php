@@ -193,7 +193,7 @@ class AdminController extends Controller
 
         $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
 
-        return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId())));
+        return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId(),'weekId'=>$weekId)));
       }
 
       // À ce stade, le formulaire n'est pas valide car :
@@ -237,10 +237,10 @@ class AdminController extends Controller
 
           $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
-          return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId())));
+          return $this->redirect($this->generateUrl('zd_admin_viewDay', array('id' => $day->getId(),'weekId'=>$weekId)));
         }
 
-      // Ici, on s'occupera de la création et de la gestion du formulaire
+      
 
       return $this->render('ZDAdminBundle:Admin:editDay.html.twig', array(
         'form'   => $form->createView(),
