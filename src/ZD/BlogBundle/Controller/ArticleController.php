@@ -48,14 +48,24 @@ class ArticleController extends Controller
             ->getRepository('ZDAdminBundle:Day')
             ->findBy(['week'=>$week])
           ;
+         
+//         $listWeeks = $this->getDoctrine()
+//                  ->getManager()
+//                  ->getRepository('ZDAdminBundle:Week')
+//                  ->findAll()
+//          ;
 
         // Puis modifiez la ligne du render comme ceci, pour prendre en compte les variables :
         return $this->render('ZDBlogBundle:Article:view.html.twig', array(
 
             'listDays'       => $listDays,
             'week'          => $week,
+//            'listWeeks'     =>$listWeeks,
         ));
     }
+    
+
+   
     
     
     

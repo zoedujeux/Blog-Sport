@@ -40,7 +40,7 @@ class Day
     private $content;
     
     /**
-     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Image", mappedBy="day")
+     * @ORM\OneToMany(targetEntity="ZD\AdminBundle\Entity\Image", mappedBy="day", cascade={"persist"})
      */
     private $images;
     

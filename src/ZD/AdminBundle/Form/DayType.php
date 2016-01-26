@@ -23,7 +23,8 @@ class DayType extends AbstractType
             ->add('images', 'collection', array(
                 'type'         => new ImageType(),
                 'allow_add'    => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+    
             ))
 
 

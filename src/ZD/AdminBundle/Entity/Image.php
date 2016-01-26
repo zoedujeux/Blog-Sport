@@ -230,8 +230,8 @@ class Image
     }
     
   
-    public function __toString() 
-    {
-        return $this->getUrl();
-    }
+//    public function __toString() 
+//    {
+//        return $this->getUrl();
+//    }
 }

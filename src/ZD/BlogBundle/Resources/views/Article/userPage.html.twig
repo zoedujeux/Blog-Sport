@@ -23,7 +23,14 @@
 		<div id="featured">
 			<div class="container">
 				<header>
-					<h2>Bienvenue parmis nous </h2>
+                                    
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                         <h2>Bienvenue {{ app.user.username }} !</h2> <br/>
+                                     
+                                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                                      
+                                        {% endif %}
+					
 				</header>
 				<p>Ci dessous, comme tu peux le constater ce trouve un calendrier. 
                                    Quand tu auras fini une série d'exercices tu peux aller dans ton calendrier personnelle, au jour correspondant et cocher cette case.
