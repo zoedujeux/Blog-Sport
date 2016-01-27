@@ -190,6 +190,10 @@ class AdminController extends Controller
 //        $day->setWeek($week);
         
         if ($form->handleRequest($request)->isValid()) {
+            
+            foreach ($day->getImages() as $image){
+                $image->setDay($day);
+            }
         $em = $this->getDoctrine()->getManager();
 //        $em->persist($week);
         $em->persist($day);
@@ -237,7 +241,11 @@ class AdminController extends Controller
 
         if ($form->handleRequest($request)->isValid()) {
           // Inutile de persister ici, Doctrine connait déjà notre annonce
-          $em->flush();
+          foreach ($day->getImages() as $image){
+                $image->setDay($day);
+            }
+            
+            $em->flush();
 
           $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 

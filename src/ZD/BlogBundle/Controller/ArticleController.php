@@ -49,6 +49,12 @@ class ArticleController extends Controller
             ->findBy(['week'=>$week])
           ;
          
+         $image = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZDAdminBundle:Image')
+            ->findAll()
+          ;
+         
 //         $listWeeks = $this->getDoctrine()
 //                  ->getManager()
 //                  ->getRepository('ZDAdminBundle:Week')
@@ -60,6 +66,7 @@ class ArticleController extends Controller
 
             'listDays'       => $listDays,
             'week'          => $week,
+            'image'        =>$image,
 //            'listWeeks'     =>$listWeeks,
         ));
     }

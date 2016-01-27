@@ -11,21 +11,24 @@
                                         </header>
                                         <div class="row">
                                                 <section class="6u">
+                                                    
+                                                       
                                                         <ul class="default">
-                                                                <li>  
-                                                                      {#{% if listDay.images is not null %}
-                                                                        <img src="{{ asset(listDay.images.webPath) }}" alt="{{ listDay.images.alt }}">
-                                                                      {% endif %}#}
-                                                                </li>
+                                                            {% if listDay.images is not null %}
+                                                                {#  <img src="{{ asset(listDay.images.webPath) }}" alt="{{ listDay.images.alt }}">#}
+                                                                {% for image in listDay.images%}
+                                                                    <li>  
+
+                                                                    <img src="{{asset(image.webPath)}}" alt="{{ image.alt }}" />
+
+                                                                    </li>
+
+
+                                                                {% endfor %}
+                                                             {% endif %}
                                                         </ul>
 
-                                                        <ul class="default">
-                                                                <li><img src="" alt=""></li>
-                                                        </ul>
-
-                                                        <ul class="default">
-                                                                <li><img src="" alt=""></li>
-                                                        </ul>
+                                                       
                                                 </section>
 
                                         </div>
