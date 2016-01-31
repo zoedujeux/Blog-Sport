@@ -10,6 +10,7 @@ use ZD\BlogBundle\Entity\FormRegister;
 
 class ArticleController extends Controller
 {
+    
      public function indexAction()
     {
          
