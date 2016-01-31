@@ -1,13 +1,9 @@
 {% extends "ZDBlogBundle::layout.html.twig" %}
 
 {% block h1 %}
-    
-   {#  
-    {% for listWeek in listWeeks %}
-        
-        {{ listWeek.title}}
-        
-        {% endfor %}#}
+    {% for articleWeek in week %}
+        <h1>{{ articleWeek.title}}</h1>
+    {% endfor %}
  {% endblock %}
 
 {% block contentPage %}

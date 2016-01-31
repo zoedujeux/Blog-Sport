@@ -55,6 +55,7 @@ class ArticleController extends Controller
             ->findAll()
           ;
          
+   
 //         $listWeeks = $this->getDoctrine()
 //                  ->getManager()
 //                  ->getRepository('ZDAdminBundle:Week')
@@ -65,8 +66,8 @@ class ArticleController extends Controller
         return $this->render('ZDBlogBundle:Article:view.html.twig', array(
 
             'listDays'       => $listDays,
-            'week'          => $week,
-            'image'        =>$image,
+            'week'           => $week,
+            'image'          =>$image,
 //            'listWeeks'     =>$listWeeks,
         ));
     }
